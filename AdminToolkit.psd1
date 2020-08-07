@@ -108,10 +108,10 @@ PrivateData = @{
         # Tags = @()
 
         # A URL to the license for this module.
-        # LicenseUri = 'https://github.com/matthewjdegarmo/AdminToolkit/LICENSE'
+        LicenseUri = 'https://github.com/matthewjdegarmo/AdminToolkit/LICENSE'
 
         # A URL to the main website for this project.
-        # ProjectUri = 'https://github.com/matthewjdegarmo/AdminToolkit/'
+        ProjectUri = 'https://github.com/matthewjdegarmo/AdminToolkit/'
 
         # A URL to an icon representing this module.
         # IconUri = ''
