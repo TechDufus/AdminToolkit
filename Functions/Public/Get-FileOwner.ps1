@@ -1,3 +1,5 @@
+#!/usr/bin/env pwsh
+
 <#
 .Synopsis
     Display the owner of an item(s)

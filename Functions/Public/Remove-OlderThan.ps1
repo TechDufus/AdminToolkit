@@ -1,3 +1,5 @@
+#!/usr/bin/env pwsh
+
 <#
 .Synopsis
     Remove files in a directory recursively based on how many days since the files was changed. Use negative values for -DaysBack.

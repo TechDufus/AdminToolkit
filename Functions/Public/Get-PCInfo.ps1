@@ -1,3 +1,5 @@
+#!/usr/bin/env pwsh
+
 <#
 .Synopsis
     Gather useful information from a remote PC.

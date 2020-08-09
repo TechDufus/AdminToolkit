@@ -1,4 +1,6 @@
-﻿#Dot source all functions in all ps1 files located in the module folder
+﻿#!/usr/bin/env pwsh
+
+#Dot source all functions in all ps1 files located in the module folder
 $PublicFunctionsFiles = [System.IO.Path]::Combine($PSScriptRoot,"Functions","Public","*.ps1")
 Get-ChildItem -Path $PublicFunctionsFiles -Exclude *.tests.ps1, *profile.ps1 |
 ForEach-Object {

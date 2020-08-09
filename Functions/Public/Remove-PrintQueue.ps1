@@ -1,3 +1,5 @@
+#!/usr/bin/env pwsh
+
 <#
 .Synopsis
     Quickly clear print que from all installed printers.

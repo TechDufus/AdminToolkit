@@ -1,3 +1,5 @@
+#!/usr/bin/env pwsh
+
 <#
 .Synopsis
 Enable PSRemoting via PSEXEC remotely.

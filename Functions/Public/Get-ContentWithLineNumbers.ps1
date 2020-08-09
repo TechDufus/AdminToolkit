@@ -1,3 +1,5 @@
+#!/usr/bin/env pwsh
+
 <# 
 .Synopsis
     Mimic Unix / Linux tool nl number lines

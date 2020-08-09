@@ -1,3 +1,5 @@
+#!/usr/bin/env pwsh
+
 <#
 .SYNOPSIS
     This is a colorized version of Get-ChildItem (dir, ls).
