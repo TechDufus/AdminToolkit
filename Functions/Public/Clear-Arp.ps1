@@ -1,3 +1,5 @@
+#!/usr/bin/env pwsh
+
 <#
 .SYNOPSIS
 Use Netsh to clear ArpCache
