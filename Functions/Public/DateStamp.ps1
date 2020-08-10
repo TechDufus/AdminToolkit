@@ -1,5 +1,3 @@
-#!/usr/bin/env pwsh
-
 <#
 .SYNOPSIS
     This is a filter used to place timestamps on any output messages.
@@ -18,10 +16,9 @@
     Site: https://matthewjdegarmo.github.io
 #>
 filter DateStamp() {
+    [CmdletBinding()]
+    param()
     process {
         Write-Output "[$(Get-Date -Format "MM/dd/yyyy HH:mm:ss")]: $_"
     }
 }
-
-
-
