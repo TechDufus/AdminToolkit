@@ -26,7 +26,7 @@
     Handle: @matthewjdegarmo
 #>
 function Update-Powershell() {
-    [CmdletBinding()
+    [CmdletBinding()]
     param(
         [switch] $Preview,
         [switch] $Quiet
