@@ -2,12 +2,20 @@
 .SYNOPSIS
     This is a quick way to lock your workstation.
 .DESCRIPTION
-    LLM is to stand for 'Lock Local Machine'. This will lock the current workstation.
+    LLM is to stand for 'Lock Local Machine'. This will lock the current on a windows workstation. Will need to add functionality to lock a linux or mac.
+.EXAMPLE
+    PS> llm
+    
+    Description
+    -----------
+    This will quickly lock the current workstation.
 .NOTES
     Author: Matthew J. DeGarmo
     Site: https://matthewjdegarmo.github.io
 #>
 Function llm {
+    [CmdletBinding()]
+    param ()
     $signature = @"  
     [DllImport("user32.dll", SetLastError = true)]  
     public static extern bool LockWorkStation();  
