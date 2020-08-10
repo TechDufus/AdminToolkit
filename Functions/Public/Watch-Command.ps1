@@ -28,6 +28,7 @@
     Handle: @matthewjdegarmo
 #>
 function Watch-Command() {
+    [CmdletBinding()]
     param(
         [Parameter(Mandatory, Position = 0)]
         [string] $Command,
