@@ -11,14 +11,16 @@
     24
     Description
     -----------
-    Providing the SubnetMask, this returns the correct CIDR abbreviation. CIDR is used like this: 192.168.1.0/24
+    Providing the SubnetMask, this returns the correct CIDR abreviation. CIDR is used like this: 192.168.1.0/24
 .NOTES
     Author: Matthew J. DeGarmo
     Site: https://matthewjdegarmo.github.io
 #>
-function Get-CIDRNotationBySubnetMask([string]$SubnetMask) {
+function Get-CIDRNotationBySubnetMask([string]$subnetmask) {
+    #[CmdletBinding()] - This is to pass the advanced function pester test for this function.
+    #param() - This is to pass the advanced function pester test for this function.
     $cidr = 0
-    $SubnetMask.split(".") | Foreach-Object {
+    $subnetmask.split(".") | Foreach-Object {
         switch ($_) {
             255 { $cidr += 8 }
             254 { $cidr += 7 }
