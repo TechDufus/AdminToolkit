@@ -2,7 +2,7 @@
 PowerShell Module to assist Windows Admins. This contains many useful administration and utility functions.
 
 [![Build Status](https://dev.azure.com/matthewjdegarmo/AdminToolkit/_apis/build/status/matthewjdegarmo.AdminToolkit?branchName=master)](https://dev.azure.com/matthewjdegarmo/AdminToolkit/_build/latest?definitionId=1&branchName=master)
-![License](https://img.shields.io/github/license/matthewjdegarmo/AdminToolkit)
+[![License](https://img.shields.io/github/license/matthewjdegarmo/AdminToolkit)](https://github.com/matthewjdegarmo/AdminToolkit/LICENSE)
 <!--
 [![Known Vulnerabilities](https://snyk.io/test/github/dwyl/hapi-auth-jwt2/badge.svg)](https://snyk.io/test/github/matthewjdegarmo/HelpDesk)
 -->
