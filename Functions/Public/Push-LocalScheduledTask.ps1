@@ -58,6 +58,7 @@
     Handle: @matthewjdegarmo
 #>
 function Push-LocalScheduledTask() {
+    [CmdletBinding()]
     param(
         [Parameter(Mandatory)]
         [string[]] $ComputerName,
