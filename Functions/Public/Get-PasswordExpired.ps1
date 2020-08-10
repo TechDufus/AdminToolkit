@@ -6,7 +6,12 @@
 
 .DESCRIPTION
     Returns a list of Active Directory Accounts with expired passwords
-    
+.EXAMPLE
+    PS> Get-PasswordExpired
+
+    Description
+    -----------
+    This will get all of the current accounts with expired passwords.
 .NOTES
     Author: Matthew J. DeGarmo
     Handle: @matthewjdegarmo
@@ -15,7 +20,7 @@ Function Get-PasswordExpired {
     [CmdletBinding()]
     param ()
 
-    Search-ADAccount -PasswordExpired | Select-Object name | Sort-Object name | Format-List
+    Search-ADAccount -PasswordExpired
 }
 
 
