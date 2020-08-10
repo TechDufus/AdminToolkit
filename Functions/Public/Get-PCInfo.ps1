@@ -6,7 +6,12 @@
 
 .Description
     Returns useful informaion on the local endpoint or another.
+.EXAMPLE
+    PS> Get-PCInfo -ComputerName Computer1
 
+    Description
+    -----------
+    This will generate information from the remote computer using CIM Instances.
 .NOTES
     Author: Matthew J. DeGarmo
     Handle: @matthewjdegarmo
