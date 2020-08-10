@@ -69,7 +69,7 @@ PowerShellVersion = '5.1'
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = 'Get-Printers', 'Get-Management', 'Remove-App', 'Remove-PrintQueue', 
+FunctionsToExport = 'Get-Printers', 'Get-Management', 'Remove-Application', 'Remove-PrintQueue', 
                 'Clear-Arp', 'Enable-Remoting', 'Copy-WithProgress', 'SU', 
                 'Get-Definition', 'Invoke-Speech', 'Reset-NetworkAdapter', 
                 'Remove-OlderThan', 'Reset-NetworkStack', 'Get-FolderSize', 
@@ -88,7 +88,7 @@ CmdletsToExport = @()
 # VariablesToExport = @()
 
 # Aliases to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no aliases to export.
-AliasesToExport = 'Update-PowershellCore', 'GD', 'Watch'
+AliasesToExport = 'GD', 'Watch'
 
 # DSC resources to export from this module
 # DscResourcesToExport = @()
