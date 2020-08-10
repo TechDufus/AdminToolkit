@@ -18,7 +18,7 @@
 function New-Folder() {
     [CmdletBinding()]
     param (
-        [Parameter(Mandatory,Position=0)
+        [Parameter(Mandatory,Position=0)]
         [string] $FolderName
     )
     if (-Not (Test-Path -Path ".\$FolderName")) {
