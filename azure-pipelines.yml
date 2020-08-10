@@ -21,7 +21,11 @@ steps:
     testResultsFiles: '**/TEST-*.xml'
     failTaskOnFailedTests: true
 
-- task: PublishPipelineArtifact@0
+
+- task: AzureKeyVault@1
   inputs:
-    artifactName: 'Azure-Secrets'
-    targetPath: 'Azure-Secrets'
+    azureSubscription: 'Azure-Secrets'
+    KeyVaultName: 'PSGallery'
+    SecretsFilter: '*'
+    RunAsPreJob: true
+
