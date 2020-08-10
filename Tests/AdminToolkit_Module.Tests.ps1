@@ -73,7 +73,7 @@ Describe "AdminToolkit Module Public Tests" {
         }
     }
 }
-
+<# Currently no private functions defined.
 InModuleScope AdminToolkit {
     Describe "AdminToolkit Module Private Tests" {
         Context 'Private Functions' {
@@ -87,5 +87,5 @@ InModuleScope AdminToolkit {
             }
         }
     }
-}
+}#>
 
