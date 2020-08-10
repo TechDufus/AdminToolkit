@@ -5,6 +5,12 @@
     Windows version of the linux command `SU`
 .DESCRIPTION
     Immitate SU on Linux. This creates new PoSH Session as an admin.
+.EXAMPLE
+    PS> su
+    
+    Description
+    -----------
+    Depending on what edition of powershell is running, this will start an elevated process.
 .NOTES
     Author: Matthew J. DeGarmo
     Handle: @matthewjdegarmo
