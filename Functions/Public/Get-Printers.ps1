@@ -6,7 +6,18 @@
 
 .Description
     This function will attempt to gather printer information for a local or remote PC.
-
+.EXAMPLE
+    PS> Get-Printers
+    
+    Description
+    -----------
+    This will generate local printer information.
+.EXAMPLE
+    PS> Get-Printers -ComputerName Some-Remote-Computer1
+    
+    Description
+    -----------
+    This will generate printer information for the remote computer `Some-Remote-Computer1' via a Cim Instance.
 .NOTES
     Author: Matthew J. DeGarmo
     Handle: @matthewjdegarmo
