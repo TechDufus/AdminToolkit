@@ -16,6 +16,8 @@
     Handle: @matthewjdegarmo
 #>
 function su() {
+    [CmdletBinding()]
+    param ()
     switch ($($PSVersionTable.PSEdition)) {
         "Desktop" { Start-Process Powershell -Verb RunAs }
         "Core" { Start-Process Pwsh -Verb RunAs }
