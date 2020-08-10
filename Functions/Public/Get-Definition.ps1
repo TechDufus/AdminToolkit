@@ -3,18 +3,28 @@
 <#
 .SYNOPSIS
     Gets the back-end definition of a function.
-
 .DESCRIPTION
     This function will export a string of the code that defines a function.
-
 .PARAMETER Function
     This parameter takes a function name, or an alias name, to generate the function definition.
+.EXAMPLE
+    PS> Get-Definition Get-Definition
 
+    Description
+    -----------
+    This will get the function definitnion for the `Get-Definition` command itself.
+.EXAMPLE
+    PS> Get-Definition glo | Clip
+
+    Description
+    -----------
+    This will get the definition for the `glo` aliased command, and pipe it into your clipboard using the clip.exe file.
 .NOTES
     Author: Matthew J. DeGarmo
     Handle: @matthewjdegarmo
 #>
 function Get-Definition() {
+    [CmdletBinding()]
     param(
         [Parameter(Mandatory)]
         [string] $Function
@@ -35,6 +45,5 @@ function Get-Definition() {
 
     $returnDefinition.ToString()
 }
-
 
 
