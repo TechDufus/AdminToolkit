@@ -11,7 +11,8 @@ ForEach-Object {
     }
 }
 
-#This allows the Public functions to access the private ones, but the private ones are note exported in .psd1 file
+<# Currently no private functions defined.
+#This allows the Private functions to access the private ones, but the private ones are note exported in .psd1 file
 $PrivateFunctionsFiles = [System.IO.Path]::Combine($PSScriptRoot,"Functions","Private","*.ps1")
 Get-ChildItem -Path $PrivateFunctionsFiles -Exclude *.tests.ps1, *profile.ps1 |
 ForEach-Object {
@@ -20,7 +21,7 @@ ForEach-Object {
     } catch {
         # Write-Warning "$($_.Exception.Message)"
     }
-}
+}#>
 
 #Dor source all argument completer files for module
 $ArgCompleterFunctionsFiles = [System.IO.Path]::Combine($PSScriptRoot,"Functions","ArgCompleter","*.ps1")
