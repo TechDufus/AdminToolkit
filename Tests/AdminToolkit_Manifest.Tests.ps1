@@ -1,33 +1,32 @@
+#Requires -Modules @{ModuleName="Pester";ModuleVersion="5.0.0"}
 
-$ModuleName = "AdminToolkit"
-$ModuleManifestName ="$ModuleName.psd1"
-$ModuleManifestPath = [System.IO.Path]::Combine($PSScriptRoot,"..","$ModuleManifestName")
-# $ModuleManifestPath = "$PSScriptRoot\..\$ModuleManifestName"
-$ManifestInfo = (Test-ModuleManifest -Path $ModuleManifestPath)
-
-Describe "$ModuleName Manifest Tests" {
+Describe "AdminToolkit Manifest Tests" {
+    $ManifestInfo = Test-ModuleManifest -Path ([System.IO.Path]::Combine($PSScriptRoot,'..','AdminToolkit.psd1'))
+    $PSDefaultParameterValues = @{
+        "It:TestCases" = @{ ManifestInfo = $ManifestInfo }
+    }
     It 'Passes Test-ModuleManifest' {
-        $Manifest = $ManifestInfo
-        $Manifest | Should Not BeNullOrEmpty
+        $ManifestInfo | Should -Be $true
     }
     It 'Exports Functions' {
         $ExportedFunctions = $ManifestInfo.ExportedCommands
-        $ExportedFunctions | Should Not BeNullOrEmpty
+        $ExportedFunctions | Should -Be $true
     }
     It 'Has a Version Number' {
         $Version = $ManifestInfo.Version
-        $Version | Should Not BeNullOrEmpty
+        $Version | Should -Be $true
     }
     It 'Has an Author' {
         $Author = $ManifestInfo.Author
-        $Author | Should Not BeNullOrEmpty
+        $Author | Should -Be $true
     }
     It 'Has a Description' {
         $Description = $ManifestInfo.Description
-        $Description | Should Not BeNullOrEmpty
+        $Description | Should -Be $true
     }
     It 'Has correct RootModule' {
         $RootModule = $ManifestInfo.RootModule
-        $RootModule | Should -Be ($ModuleManifestName -Replace 'psd1', 'psm1')
+        $RootModule | Should -Match "AdminToolkit.psm1"
     }
 }
+
