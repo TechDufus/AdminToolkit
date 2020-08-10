@@ -5,6 +5,12 @@
     Translate a string into an audible message.
 .DESCRIPTION
     This function calls the SAPI.SPVoice class to invoke audio given a string. This is useful when running long processes, you can audibly be alerted that a task is finished.
+.EXAMPLE
+    PS> Get-SomeDataThatTakesAnHour;Invoke-Speech -Message "Your data is ready, sir."
+    
+    Description
+    -----------
+    This will generated audio for the string 'Your data is ready, sir." depending on your volume level.
 .NOTES
     Author: Matthew J. DeGarmo
     Site: https://matthewjdegarmo.github.io
