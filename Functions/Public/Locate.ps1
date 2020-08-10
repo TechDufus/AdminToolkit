@@ -80,6 +80,36 @@ not when it is an item does not have child items, such as C:\Windows\ .exe.
 
 By Default, this is set to True. Use -Recurse:$false to turn off recursive results.
 
+.EXAMPLE
+    PS> Locate AdminToolkit.psd1 -Recurse
+    
+    Description
+    -----------
+    This will search from the current working directory for files or folders mathing the filter 'AdminToolkit.psd1'
+.EXAMPLE
+    PS> locate foo.txt C:\temp
+    
+    Description
+    -----------
+    This will search for the file foo.txt in the directory C:\temp.
+.EXAMPLE
+    PS> locate test -Recurse -Exclude *.tests.*
+
+    Directory: C:\Temp\HelpDesk\Functions\Public
+
+    Mode                 LastWriteTime         Length Name
+    ----                 -------------         ------ ----
+    -a---            8/5/2020 11:51 AM           6985 Test-Administrator.ps1
+
+    Directory: C:\Temp\HelpDesk
+
+    Mode                 LastWriteTime         Length Name
+    ----                 -------------         ------ ----
+    d----            8/5/2020  2:07 PM                Tests
+    
+    Description
+    -----------
+    This will search recursively using the filter 'test' and exclude files/folders that match '*.tests.*'
 .NOTES
     Author: Matthew J. DeGarmo
     Handle: @matthewjdegarmo
@@ -90,7 +120,7 @@ By Default, this is set to True. Use -Recurse:$false to turn off recursive resul
 Function Locate() {
     [CmdletBinding()]
     param (
-        [Parameter(Mandatory = $true, Position = 0)]
+        [Parameter(Position = 0)]
         [string]$Filter,
         [Parameter(Position = 1)]
         [string]$Path = (Get-Location),
@@ -104,8 +134,12 @@ Function Locate() {
         [switch]$Hidden,
         [switch]$ReadOnly
     )
-    $PSBoundParameters.Filter = "*$Filter*"
-    $PSBoundParameters.Recurse = $true
+    if (-Not($PSBoundParameters.Filter)) {
+        $PSBoundParameters.Filter = '*'
+    } else {
+        $PSBoundParameters.Filter = "*$Filter*"
+    }
+
     Get-ChildItem @PSBoundParameters -ErrorAction SilentlyContinue
 }
 
