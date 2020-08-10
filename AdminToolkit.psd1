@@ -76,7 +76,7 @@ FunctionsToExport = 'Get-Printers', 'Get-Management', 'Remove-Application', 'Rem
                 'Get-FileOwner', 'Remove-Path', 'Locate', 'Get-Applications', 
                 'Get-PrintManagement', 'Get-PublicIP', 'Remove-AllTempFiles', 
                 'Get-PasswordExpired', 'Get-PCInfo', 'grep', 'New-Folder', 'PSRemote', 
-                'Update-Powershell', 'Get-CIDRNotationBySubnetMask', 
+                'Update-PowerShell', 'Get-CIDRNotationBySubnetMask', 
                 'Push-LocalScheduledTask', 'Get-WindowsBuild', 'Watch-Command', 
                 'DateStamp', 'TimeStamp', 'LL', 'Get-ContentWithLineNumbers', 'LLM', 
                 'Get-PCUpTime'
