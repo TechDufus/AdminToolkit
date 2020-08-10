@@ -16,6 +16,7 @@
     Site: https://matthewjdegarmo.github.io
 #>
 function Invoke-Speech {
+    [CmdletBinding()]
     param (
         [Parameter(ValueFromPipeline = $true)]
         [string]$Message
