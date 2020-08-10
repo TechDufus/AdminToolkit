@@ -3,10 +3,14 @@
 <#
 .SYNOPSIS
     Reset Network Stack. Will require a reboot.
-
 .DESCRIPTION
     Resets the TCP/IP and Winsock Stacks
-
+.EXAMPLE
+    PS> Reset-NetworkStack
+    
+    Description
+    -----------
+    This will reset the winsock and ip, ipv4, and ipv6 interfaces.
 .NOTES
     Author: Matthew J. DeGarmo
     Handle: @matthewjdegarmo
