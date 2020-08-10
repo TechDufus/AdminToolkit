@@ -15,7 +15,7 @@ Describe "AdminToolkit Module Public Tests" {
             $PublicImportFailedFunctions | Should -BeNullOrEmpty
         }
 
-        $PublicFiles = Get-ChildItem ([System.IO.Path]::Combine($PSScriptRoot,'..','Functions','Public','*.ps1')) -Exclude *tests.ps1, Aliases.ps1 | ForEach-Object {
+        Get-ChildItem ([System.IO.Path]::Combine($PSScriptRoot,'..','Functions','Public','*.ps1')) -Exclude *tests.ps1, Aliases.ps1 | ForEach-Object {
             Context "Test File: $($_.BaseName)" {
                 $PSDefaultParameterValues = @{
                     "It:TestCases" = @{ CurrentFunction = $_ }
