@@ -6,15 +6,34 @@
 .DESCRIPTION
     This function will change the color of object names using Get-ChildItem based on the object type or extension.
     You can define more extensions and their associated colors if you wish.
+.EXAMPLE
+    PS> LL C:\Temp
+    
+    Description
+    -----------
+    Display a colorized output for `Get-ChildItem` at C:\Temp.
+.EXAMPLE
+    PS> ll
+    
+    Description
+    -----------
+    Display a colorized output for `Get-ChildItem` at the current working directory.
 .NOTES
     Author: Matthew J. DeGarmo
     Site: https://matthewjdegarmo.github.io
 #>
 function LL {
-    param ($dir = ".", $all = $false) 
+    [CmdletBinding()]
+    param (
+        [String] $Directory = ".", 
+        $All = $false
+    ) 
     $originalForeground = $host.ui.rawui.foregroundColor 
-    if ( $all ) { $toList = Get-ChildItem -force $dir }
-    else { $toList = Get-ChildItem $dir }
+    if ( $All ) { 
+        $toList = Get-ChildItem -force $Directory 
+    } else { 
+        $toList = Get-ChildItem $Directory 
+    }
     foreach ($Item in $toList) { 
         Switch ($Item.Extension) {
             ".Exe" { $host.ui.rawui.foregroundColor = "Yellow" } 
