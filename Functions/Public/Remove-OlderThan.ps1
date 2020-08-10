@@ -18,6 +18,7 @@
     Version: 1.0 - Function Creation.
 #>
 Function Remove-OlderThan {
+    [CmdletBinding()]
     Param (
         [Parameter(Mandatory = $true)]$Path,
         [Parameter(Mandatory = $true)][ValidateScript( { $_ -gt 0 })][int]$DaysBack,
