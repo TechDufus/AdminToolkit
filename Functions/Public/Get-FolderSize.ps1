@@ -6,7 +6,12 @@
 
 .DESCRIPTION
     This function will calculate the disk space used by a specified directory. This uses the current directory by default.
+.EXAMPLE
+    PS> Get-FolderSize
 
+    Description
+    -----------
+    This will display the folder size of the current folder location `Get-Location`
 .NOTES
     Author: Matthew J. DeGarmo
     Handle: @matthewjdegarmo
