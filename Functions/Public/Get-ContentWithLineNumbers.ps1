@@ -6,12 +6,17 @@
 .Description
     Print file content with numbered lines no original nl options supported
 .Example
-    nl .\food.txt
+    PS> Get-ContentWithLineNumbers -FileName C:\Foo.txt
+    
+    Description
+    -----------
+    This will append line numbers to the begninning of each line in the Foo.txt file.
 .NOTES
     Author: Matthew J. DeGarmo
     Site: https://matthewjdegarmo.github.io
 #>
 function Get-ContentWithLineNumbers() {
+    [CmdletBinding()]
     param (
         [parameter(mandatory = $true, Position = 0, ValueFromPipeline, ParameterSetName = 'File')]
         [String]$FileName,
