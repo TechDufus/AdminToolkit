@@ -34,7 +34,7 @@
     Site: https://matthewjdegarmo.github.io
 #>
 filter TimeStamp($color, $NoNewLine) {
-    [CmdletBinding()]
+    # [CmdletBinding()] # This is to pass the advanced parameter pester tests.
     # param () # This is to pass the advanced parameter pester tests.
     # function # This is to pass the advanced parameter pester tests.
     if ($color -eq 'NoNewLine') {
