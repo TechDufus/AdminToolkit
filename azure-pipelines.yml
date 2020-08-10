@@ -12,14 +12,8 @@ pool:
 steps:
 - task: PowerShell@2
   inputs:
-    targetType: 'inline'
-    script: |
-      $PesterModule = Get-Module -Name Pester -ListAvailable
-      if (-Not($PesterModule.Version -gt '5.0.0')) {
-        Install-Module -Name Pester -MinimumVersion 5.0.0 -Force -SkipPublisherCheck
-      }
-      
-      Invoke-Pester -Path "./Tests/" -OutputFile "./Test-Pester.XML" -OutputFormat "NUnitXML"
+    filePath: 'azure-pipelines.ps1'
+    pwsh: true
 
 - task: PublishTestResults@2
   inputs:
