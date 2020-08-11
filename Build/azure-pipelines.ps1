@@ -4,4 +4,4 @@
       }
       $TestsPath = [System.IO.Path]::Combine($PSScriptRoot,'..','Tests')
       
-      Invoke-Pester -Path $TestsPath -OutputFile "./Test-Pester.XML" -OutputFormat "NUnitXML"
+      Invoke-Pester -Path $TestsPath -OutputFile "./Test-AdminToolkitPester.XML" -OutputFormat "NUnitXML"
