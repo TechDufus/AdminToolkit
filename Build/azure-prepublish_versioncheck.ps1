@@ -1,3 +1,7 @@
+param (
+  $PSGallery_Publish_API_Key
+)
+
 $PSGalleryModule = Find-Module AdminToolkit -Repository PSGallery -ErrorAction SilentlyContinue
 $CurrentModule = Test-ModuleManifest -Path ([System.IO.Path]::Combine($PSScriptRoot,'..','AdminToolkit.psd1'))
 
