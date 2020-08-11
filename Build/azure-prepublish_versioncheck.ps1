@@ -14,7 +14,7 @@ if ($CurrentModule.Version -gt $PSGalleryModule.Version -or (-Not($PSGalleryModu
   #$NugetApiKey = $PSGallery_Publish_API_Key | ConvertFrom-SecureString -AsPlainText -Force
   $PWDParentDir = Split-Path $PSScriptRoot -Parent
   $ManifestPath = [System.IO.Path]::Combine($PWDParentDir,'AdminToolkit.psd1')
-  Publish-Module -Path $ManifestPath -Repository PSGallery -NuGetApiKey $PSGallery_Publish_API_Key
+  Publish-Module -Path $PWDParentDir -Repository PSGallery -NuGetApiKey $PSGallery_Publish_API_Key
 } else {
   Write-Error "Current Module version ($($CurrentModule.Version)) | PSGallery Module version ($($PSGalleryModule.Version)). Pipeline module version is not greater than the Published PSGallery module version."
 }
