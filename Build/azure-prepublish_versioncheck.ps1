@@ -1,16 +1,17 @@
+#Install Passing Git Repo locally
+Git clone https://github.com/matthewjdegarmo/AdminToolkit.git
+
 $PSGalleryModule = Find-Module AdminToolkit -Repository PSGallery -ErrorAction SilentlyContinue
-$CurrentModule = Test-ModuleManifest -Path ([System.IO.Path]::Combine($PSScriptRoot,'..','AdminToolkit.psd1'))
+$CurrentModule = Test-ModuleManifest -Path ([System.IO.Path]::Combine($PSScriptRoot,'AdminToolkit','AdminToolkit.psd1'))
 
 #How to handle INITIAL Publishing?
 #Must be able to detect both module versions
 #CurrentModule.Version must be -gt PSGalleryModule.Version
 
-if (-Not ($PSGalleryModule)) {
-  #NO MODULE EXISTS - FIRST TIME RUN - PUBLISH CURRENT MODULE TO PSGALLERY
+if ($CurrentModule.Version -gt $PSGalleryModule.Version -or (-Not($PSGalleryModule))) {
+  #PIPELINE MODULE HAS A NEW MANIFEST VERSION - PUBLISH TO PSGALLERY OR INITIAL PUBLISHING TO PSGALLERY
+  Publish-Module -Path (Join-Path -Path $PSScriptRoot -ChildPath "AdminToolkit") -Repository PSGallery -NuGetApiKey $PSGallery_Publish_API_Key
 } else {
-  if ($CurrentModule.Version -gt $PSGalleryModule.Version) {
-    #PIPELINE MODULE HAS A NEW MANIFEST VERSION - PUBLISH TO PSGALLERY
-  } else {
-    Write-Error "Current Module version ($($CurrentModule.Version)) | PSGallery Module version ($($PSGalleryModule.Version)). Pipeline module version is not greater than the Published PSGallery module version."
-  }
+  Write-Error "Current Module version ($($CurrentModule.Version)) | PSGallery Module version ($($PSGalleryModule.Version)). Pipeline module version is not greater than the Published PSGallery module version."
 }
+
