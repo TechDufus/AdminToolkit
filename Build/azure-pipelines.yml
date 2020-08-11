@@ -18,7 +18,7 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'NUnit'
-    testResultsFiles: '**/Build/TEST-*.xml'
+    testResultsFiles: '**/Test-AdminToolkitPester.xml'
     failTaskOnFailedTests: true
 
 
