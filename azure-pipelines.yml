@@ -22,10 +22,10 @@ steps:
     failTaskOnFailedTests: true
 
 
-- task: PublishPipelineArtifact@0
-  inputs:
-    artifactName: 'Azure-Secrets'
-    targetPath: 'Azure-Secrets'
+# - task: PublishPipelineArtifact@0
+#   inputs:
+#     artifactName: 'Azure-Secrets'
+#     targetPath: 'Azure-Secrets'
 
 
 #- task: AzureKeyVault@1
