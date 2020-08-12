@@ -13,6 +13,10 @@ PowerShell Module to assist Windows Admins. This contains many useful administra
 ```powershell
 Install-Module AdminToolkit
 ```
+##Update from PowerShell Gallery
+```powershell
+Update-Module AdminToolkit
+```
 
 ## Installing with Git
 ### For Windows PowerShell 5.1 ###
