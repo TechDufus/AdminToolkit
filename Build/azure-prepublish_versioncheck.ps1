@@ -7,7 +7,7 @@ $CurrentModule = Test-ModuleManifest -Path ([System.IO.Path]::Combine("AdminTool
 #Ensure this is either an initial publish to PSGallery, or that the GitHub version is higher than the PSGallery version
 if ($CurrentModule.Version -gt $PSGalleryModule.Version -or (-Not($PSGalleryModule))) {
   if (Publish-Module -Path $CurrentModule.ModuleBase -Repository PSGallery -NuGetApiKey $env:PSGALLERY_API_KEY -WhatIf) {
-    Publish-Module -Path $CurrentModule.ModuleBase -Repository PSGallery -NuGetApiKey $env:PSGALLERY_API_KEY
+    Publish-Module -Path $CurrentModule.ModuleBase -Repository PSGallery -NuGetApiKey $env:PSGALLERY_API_KEY -Verbose
   }
 } else {
   Write-Output "GitHub Module version ($($CurrentModule.Version)) | PSGallery Module version ($($PSGalleryModule.Version)). Pipeline module version is not greater than the Published PSGallery module version."
