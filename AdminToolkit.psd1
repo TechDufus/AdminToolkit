@@ -12,7 +12,7 @@
 RootModule = 'AdminToolkit.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.0'
+ModuleVersion = '1.0.1'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Desktop', 'Core'
@@ -30,7 +30,7 @@ CompanyName = 'https://matthewjdegarmo.com'
 Copyright = '(c) Matthew J. DeGarmo. All rights reserved.'
 
 # Description of the functionality provided by this module
-Description = 'Miscellaneous functions and utilities for System Administrators.'
+Description = 'Miscellaneous functions and utilities for Windows System Administrators.'
 
 # Minimum version of the Windows PowerShell engine required by this module
 PowerShellVersion = '5.1'
@@ -108,7 +108,7 @@ PrivateData = @{
         # Tags = @()
 
         # A URL to the license for this module.
-        LicenseUri = 'https://github.com/matthewjdegarmo/AdminToolkit/LICENSE'
+        LicenseUri = 'https://github.com/matthewjdegarmo/AdminToolkit/blob/master/LICENSE'
 
         # A URL to the main website for this project.
         ProjectUri = 'https://github.com/matthewjdegarmo/AdminToolkit/'
