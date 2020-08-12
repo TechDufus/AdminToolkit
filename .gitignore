@@ -1,3 +1,0 @@
-
-#Ignore Build folder. This is used by AzurePipelines.
-/Build*
