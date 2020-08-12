@@ -9,6 +9,11 @@ PowerShell Module to assist Windows Admins. This contains many useful administra
 <!--
 [![Known Vulnerabilities](https://snyk.io/test/github/dwyl/hapi-auth-jwt2/badge.svg)](https://snyk.io/test/github/matthewjdegarmo/HelpDesk)
 -->
+## Install from PowerShell Gallery
+```powershell
+Install-Module AdminToolkit
+```
+
 ## Installing with Git
 ### For Windows PowerShell 5.1 ###
 ```powershell
