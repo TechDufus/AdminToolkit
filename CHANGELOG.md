@@ -1,10 +1,8 @@
 # Changelog for AdminToolkit
 
-## v1.0.3 🐱‍👓
+## v1.0.2 🐱‍🏍
 + Adding Build job in Azure.
   + Module will now be installed as core .psd1 and .psm1 files instead of entire raw directory.
-
-## v1.0.2 🐱‍🏍
 + Removed .gitignore file entirely. Logic to exclude Build folder from module is done in AzurePipeline.
 
 ## v1.0.1 🐱‍👤
