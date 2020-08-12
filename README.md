@@ -9,7 +9,7 @@ PowerShell Module to assist Windows Admins. This contains many useful administra
 <!--
 [![Known Vulnerabilities](https://snyk.io/test/github/dwyl/hapi-auth-jwt2/badge.svg)](https://snyk.io/test/github/matthewjdegarmo/HelpDesk)
 -->
-## Installing
+## Installing with Git
 ### For Windows PowerShell 5.1 ###
 ```powershell
 # For CurrentUser scope
@@ -29,7 +29,7 @@ git clone https://github.com/matthewjdegarmo/AdminToolkit.git $PSGetPath.AllUser
 
 PowerShell will now Auto-Load the commands in this module.
 
-## Updating
+## Updating with Git
 Navigate into the cloned AdminToolkit folder and run `git pull` to pull the current main (master) branch.
 ### For Windows PowerShell 5.1 ###
 ```powershell
