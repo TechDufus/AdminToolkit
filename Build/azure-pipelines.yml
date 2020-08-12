@@ -1,8 +1,3 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - master
 
@@ -20,18 +15,3 @@ steps:
     testResultsFormat: 'NUnit'
     testResultsFiles: '**/Test-AdminToolkitPester.xml'
     failTaskOnFailedTests: true
-
-
-# - task: PublishPipelineArtifact@0
-#   inputs:
-#     artifactName: 'Azure-Secrets'
-#     targetPath: 'Azure-Secrets'
-
-
-#- task: AzureKeyVault@1
-#  inputs:
-#    azureSubscription: 'Azure-Secrets'
-#    KeyVaultName: 'PSGallery'
-#    SecretsFilter: '*'
-#    RunAsPreJob: true
-
