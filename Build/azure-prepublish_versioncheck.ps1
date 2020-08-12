@@ -1,6 +1,8 @@
 Try {
   $PSGalleryModule = Find-Module AdminToolkit -Repository PSGallery -ErrorAction SilentlyContinue
-  [System.String] $ManifestPath = [System.IO.Path]::Combine($PSScriptRoot,"AdminToolkit","AdminToolkit.psd1")
+  Write-Output $PSScriptRoot
+  $ManifestPath = Join-Path -Path $PSScriptRoot -ChildPath "AdminToolkit" -AdditionalChildPath "AdminToolkit.psd1"
+  Write-Output $ManifestPath
   $CurrentModule = Test-ModuleManifest -Path $ManifestPath
 
   if ($CurrentModule.Version -gt $PSGalleryModule.Version -or (-Not($PSGalleryModule))) {
