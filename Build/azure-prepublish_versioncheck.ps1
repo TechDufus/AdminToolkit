@@ -2,7 +2,7 @@
 $PSGalleryModule = Find-Module AdminToolkit -Repository PSGallery -ErrorAction SilentlyContinue
 
 #Get current GitHub Manifest version (From cloned repo in AzurePipelines)
-$CurrentModule = Test-ModuleManifest -Path ([System.IO.Path]::Combine("AdminToolkit","AdminToolkit.psd1"))
+$CurrentModule = Test-ModuleManifest -Path ([System.IO.Path]::Combine("AdminToolkit_Build","AdminToolkit","AdminToolkit.psd1"))
 
 #Ensure this is either an initial publish to PSGallery, or that the GitHub version is higher than the PSGallery version
 if ($CurrentModule.Version -gt $PSGalleryModule.Version -or (-Not($PSGalleryModule))) {
