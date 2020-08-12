@@ -1,5 +1,9 @@
 # Changelog for AdminToolkit
 
+## v1.0.2 🐱‍🏍
++ Removed .gitignore file entirely. Logic to exclude Build folder from module is done in AzurePipeline.
+
+
 ## v1.0.1 🐱‍👤
 + AzurePipelines Build configuration changes. Finally everything works! 🤣
 + Updated LicenseURI in Manifest. 🤦‍♂️
