@@ -6,6 +6,7 @@ pool:
 
 steps:
 - task: PowerShell@2
+  displayName: 'Pester Tests'
   inputs:
     filePath: 'Build/azure-pipelines.ps1'
     pwsh: true
