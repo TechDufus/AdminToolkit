@@ -38,6 +38,10 @@ Describe "AdminToolkit Module Public Tests" {
                     $CurrentFunction.FullName | Should -FileContentMatch 'cmdletbinding'
                     $CurrentFunction.FullName | Should -FileContentMatch 'param'
                 }
+                It "Should have Begin and End Regions" {
+                    $CurrentFunction.FullName | Should -FileContentMatch "#Region"
+                    $CurrentFunction.FullName | Should -FileContentMatch "#EndRegion"
+                }
                 It "Should be valid PowerShell code" {
                     $FileContent = Get-Content -Path $CurrentFunction.FullName -ErrorAction Stop
                     $Errors = $null
