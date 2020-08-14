@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Remove-OlderThan
 <#
 .Synopsis
     Remove files in a directory recursively based on how many days since the files was changed. Use negative values for -DaysBack.
@@ -29,7 +28,4 @@ Function Remove-OlderThan {
     $DatetoDelete = $CurrentDate.AddDays("-$Daysback")
     Get-ChildItem $Path | Where-Object { $_.LastWriteTime -lt $DatetoDelete } | Remove-Item -Force
 }
-
-
-
-
+#EndRegion Remove-OlderThan

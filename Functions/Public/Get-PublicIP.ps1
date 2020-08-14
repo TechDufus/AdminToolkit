@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Get-PublicIP
 <#
 .SYNOPSIS
     Generates your current Public IP Information
@@ -58,7 +57,4 @@ Function Get-PublicIP {
         Write-Error "$($_.Exception.Message)"
     }
 }
-
-
-
-
+#EndRegion Get-PublicIP

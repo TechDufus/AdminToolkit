@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region TimeStamp
 <#
 .SYNOPSIS
     This is a filter used to place colorized timestamps on any output messages.
@@ -55,9 +54,4 @@ filter TimeStamp($color, $NoNewLine) {
         Write-Host "$_" -ForegroundColor $color
     }
 }
-
-
-
-
-
-
+#EndRegion TimeStamp

@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Remove-AllTempFiles
 <#
 .Synopsis
     Generic Cleanup of temp files on a computer.
@@ -24,9 +23,6 @@
 .NOTES
     Author: Matthew J. DeGarmo
     Handle: @matthewjdegarmo
-
-    Change Log:
-    Version: 1.0 - Function Creation.
 #>
 Function Remove-AllTempFiles() {
     [CmdletBinding(SupportsShouldProcess)]
@@ -103,8 +99,4 @@ Function Remove-AllTempFiles() {
         @{Name = "PercentFree"; Expression = { [math]::Round(($_.Freespace / $_.size) * 100, 2) } }
     }
 }
-
-
-
-
-
+#EndRegion Remove-AllTempFiles

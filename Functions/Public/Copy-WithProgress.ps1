@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Copy-WithProgress
 <#
 .SYNOPSIS
     This function performs a copy of a specified object recursively to a specified location.
@@ -65,6 +64,4 @@ function Copy-WithProgress() {
     }
     Write-Progress -Activity "Moving data from '$Source' to '$Destination'" -Completed 
 }
-
-
-
+#EndRegion Copy-WithProgress

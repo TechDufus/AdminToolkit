@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Get-ContentWithLineNumbers
 <# 
 .Synopsis
     Mimic Unix / Linux tool nl number lines
@@ -39,5 +38,4 @@ function Get-ContentWithLineNumbers() {
         }
     }
 }
-
-
+#EndRegion Get-ContentWithLineNumbers

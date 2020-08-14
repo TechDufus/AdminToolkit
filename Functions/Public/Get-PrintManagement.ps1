@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Get-PrintManagement
 <#
 .SYNOPSIS
     Quickly launch Print Management MSC Snap-in
@@ -18,9 +17,8 @@
 Function Get-PrintManagement {
     [CmdletBinding()]
     param (
-        [string[]]$ComputerName
+        [string[]]$ComputerName = $env:COMPUTERNAME
     )
     printmanagement.msc /computer:$ComputerName
 }
-
-
+#EndRegion Get-PrintManagement

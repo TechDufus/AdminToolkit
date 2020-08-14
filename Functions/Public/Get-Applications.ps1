@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Get-Applications
 <#
 .SYNOPSIS
     List locally installed applications
@@ -23,6 +22,4 @@ Function Get-Applications {
     Select-Object DisplayName, DisplayVersion, Publisher, InstallDate |
     Sort-Object DisplayName
 }
-
-
-
+#EndRegion Get-Applications

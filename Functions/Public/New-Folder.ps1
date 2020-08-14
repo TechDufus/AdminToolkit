@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region New-Folder
 <#
 .SYNOPSIS
     Easily create a new folder in the current working directory.
@@ -28,8 +27,4 @@ function New-Folder() {
         Write-Error "Folder $FolderName already exists at this location."
     }
 }
-
-
-
-
-
+#EndRegion New-Folder

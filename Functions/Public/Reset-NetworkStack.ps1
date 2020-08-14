@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Reset-NetworkStack
 <#
 .SYNOPSIS
     Reset Network Stack. Will require a reboot.
@@ -29,8 +28,4 @@ Function Reset-NetworkStack {
     netsh.exe int ipv6 reset reset.log
     Write-Output "[-] You will need to restart this computer."
 }
-
-
-
-
-
+#EndRegion Reset-NetworkStack

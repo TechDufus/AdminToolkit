@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region LL
 <#
 .SYNOPSIS
     This is a colorized version of Get-ChildItem (dir, ls).
@@ -63,8 +62,4 @@ function LL {
     }  
     $host.ui.rawui.foregroundColor = $originalForeground 
 }
-
-
-
-
-
+#EndRegion LL

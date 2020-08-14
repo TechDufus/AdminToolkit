@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region PSRemote
 <#
 .SYNOPSIS
     Starts an Enter-PSSession with the specified Server.
@@ -96,11 +95,4 @@ function PSRemote() {
         }
     }
 }
-
-
-
-
-
-
-
-
+#EndRegion PSRemote

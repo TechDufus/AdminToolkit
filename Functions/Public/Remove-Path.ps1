@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Remove-Path
 <#
 .Synopsis
     Deletes folder recursively, so be careful. If -Include is empty, it will delete all files, otherwise it will delete only the ones you -Include.
@@ -19,9 +18,6 @@
 .NOTES
     Author: Matthew J. DeGarmo
     Handle: @matthewjdegarmo
-
-    Change Log:
-    Version: 1.0 - Function Creation.
 #>
 Function Remove-Path {
     [CmdletBinding()]
@@ -32,7 +28,4 @@ Function Remove-Path {
 
     Get-ChildItem -path "$Path" -Include "$Include" -Recurse -force | Remove-Item -force -Recurse
 }
-
-
-
-
+#EndRegion Remove-Path

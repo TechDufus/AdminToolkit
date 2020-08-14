@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Remove-PrintQueue
 <#
 .Synopsis
     Quickly clear print que from all installed printers.
@@ -38,7 +37,4 @@ Function Remove-PrintQueue {
         }
     }
 }
-
-
-
-
+#EndRegion Remove-PrintQueue

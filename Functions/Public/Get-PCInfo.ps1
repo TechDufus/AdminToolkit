@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Get-PCInfo
 <#
 .Synopsis
     Gather useful information from a remote PC.
@@ -68,5 +67,4 @@ Function Get-PCInfo {
     Select-Object IPAddress, DefaultIPGateway, DNSServerSearchOrder, IPSubnet, MACAddress, Caption, DHCPEnabled, DHCPServer, DNSDomainSuffixSearchOrder |
     Format-List
 }
-
-
+#EndRegion Get-PCInfo

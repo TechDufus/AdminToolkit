@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Locate
 <#
 .SYNOPSIS
 Quickly search a location for a file, folder, hidden file, etc...
@@ -142,7 +141,4 @@ Function Locate() {
 
     Get-ChildItem @PSBoundParameters -ErrorAction SilentlyContinue
 }
-
-
-
-
+#EndRegion Locate

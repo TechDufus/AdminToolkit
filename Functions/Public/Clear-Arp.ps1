@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Clear-Arp
 <#
 .SYNOPSIS
     Use Netsh to clear ArpCache
@@ -20,7 +19,4 @@ function Clear-Arp() {
     param()
     netsh.exe interface ip delete arpcache
 }
-
-
-
-
+#EndRegion Clear-Arp

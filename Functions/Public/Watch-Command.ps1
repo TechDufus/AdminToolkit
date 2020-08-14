@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Watch-Command
 <#
 .SYNOPSIS
     Loop through a command forever until canceled (Ctrl + C)
@@ -89,7 +88,4 @@ function Watch-Command() {
     }
     end {}
 }
-
-
-
-
+#EndRegion Watch-Command

@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Push-LocalScheduledTask
 <#
 .SYNOPSIS
     Deploy a local scheduled task to a remote machine
@@ -122,6 +121,4 @@ function Push-LocalScheduledTask() {
 
     end {}
 }
-
-
-
+#EndRegion Push-LocalScheduledTask

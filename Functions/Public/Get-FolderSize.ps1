@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Get-FolderSize
 <#
 .SYNOPSIS
     Quickly calculate the size of a directory.
@@ -32,5 +31,4 @@ Function Get-FolderSize {
     
     $TotalSize
 }
-
-
+#EndRegion Get-FolderSize

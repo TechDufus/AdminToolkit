@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region grep
 <#
 .SYNOPSIS
     Basic version of the linux command `grep` on Windows.
@@ -26,3 +25,4 @@ function grep {
         $_ | Where-Object { $_ -match $regex }
     }
 }
+#EndRegion grep

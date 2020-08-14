@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Get-PCUpTime
 <#
 .SYNOPSIS
     Get the amount of time since the last boot-up sequence for a computer.
@@ -49,18 +48,28 @@ function Get-PCUpTime() {
                     }
                 
                     $Now = Get-Date
-                    $LastBootUpTime = (Get-CimInstance @SplatMe).LastBootUpTime
-                    $Return = $Now - $LastBootUpTime | Select-Object Days,Hours,Minutes,Seconds,@{Name='Date';Expression={$LastBootUpTime}}
+                    $LastBootUpTime = (Get-CimInstance @SplatMe -ErrorAction Stop).LastBootUpTime
+                    $Return = $Now - $LastBootUpTime
                     return $Return
                 }
     
                 'Core' {
                     if ($null -ne $ComputerName) {
+                        $PCFunctionDefinition = Get-Definition Get-PCUpTime
+                        $Script = @"
+                        $PCFunctionDefinition
+                        Get-PCUpTime
+"@
+                        $ScriptBlock = {
+                            param ($Script)
+                            . ([ScriptBlock]::Create($Script))
+                        }
                         $params = @{
                             ComputerName = $ComputerName
-                            ScriptBlock = {Get-Uptime}
+                            ScriptBlock = $ScriptBlock
+                            ArgumentList = $Script
                         }
-                        Invoke-Command @params
+                        Invoke-Command @params 
                     } else {
                         Get-Uptime
                     }
@@ -73,9 +82,4 @@ function Get-PCUpTime() {
         }
     }
 }
-
-
-
-
-
-
+#EndRegion Get-PCUpTime

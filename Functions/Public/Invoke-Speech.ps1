@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Invoke-Speech
 <#
 .SYNOPSIS
     Translate a string into an audible message.
@@ -32,6 +31,4 @@ function Invoke-Speech {
         $voice.Speak($Message) | out-null;    
     }
 }
-
-
-
+#EndRegion Invoke-Speech

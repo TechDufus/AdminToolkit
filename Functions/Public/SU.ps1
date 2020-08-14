@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region SU
 <#
 .SYNOPSIS
     Windows version of the linux command `SU`
@@ -23,9 +22,4 @@ function su() {
         "Core" { Start-Process Pwsh -Verb RunAs }
     }
 }
-
-
-
-
-
-
+#EndRegion SU

@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Reset-NetworkAdapter
 <#
 .SYNOPSIS
     Reset a network interface.
@@ -26,9 +25,4 @@ Function Reset-NetworkAdapter {
     netsh.exe interface set interface $Interface admin=disable
     netsh.exe interface set interface $Interface admin=enable
 }
-
-
-
-
-
-
+#EndRegion Reset-NetworkAdapter

@@ -1,8 +1,9 @@
+#Region LLM
 <#
 .SYNOPSIS
     This is a quick way to lock your workstation.
 .DESCRIPTION
-    LLM is to stand for 'Lock Local Machine'. This will lock the current on a windows workstation. Will need to add functionality to lock a linux or mac.
+    LLM is to stand for 'Lock Local Machine'. This will lock the current session on a windows workstation. Will need to add functionality to lock a linux or mac.
 .EXAMPLE
     PS> llm
     
@@ -24,6 +25,4 @@ Function llm {
     $LockWorkStation = Add-Type -memberDefinition $signature -name "Win32LockWorkStation" -namespace Win32Functions -passthru  
     $LockWorkStation::LockWorkStation() | Out-Null
 }
-
-
-
+#EndRegion LLM

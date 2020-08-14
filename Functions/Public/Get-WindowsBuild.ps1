@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Get-WindowsBuild
 <#
 .SYNOPSIS
     Gets Windows Build information.
@@ -88,6 +87,4 @@ function Get-WindowsBuild() {
         Return $Table
     }
 }
-
-
-
+#EndRegion Get-WindowsBuild

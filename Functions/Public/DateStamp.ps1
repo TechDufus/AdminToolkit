@@ -1,3 +1,4 @@
+#Region DateStamp
 <#
 .SYNOPSIS
     This is a filter used to place timestamps on any output messages.
@@ -22,3 +23,4 @@ filter DateStamp() {
         Write-Output "[$(Get-Date -Format "MM/dd/yyyy HH:mm:ss")]: $_"
     }
 }
+#EndRegion DateStamp

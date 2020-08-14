@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Enable-Remoting
 <#
 .Synopsis
 Enable PSRemoting via PSEXEC remotely.
@@ -45,6 +44,4 @@ Function Enable-Remoting {
         Write-Error "Failed to enable PSRemoting via PSEXEC"
     }
 }
-
-
-
+#EndRegion Enable-Remoting

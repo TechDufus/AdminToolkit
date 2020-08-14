@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Update-PowerShell
 <#
 .SYNOPSIS
     This will both Install the latest release of PowerShell or update your current PowerShell.
@@ -25,7 +24,7 @@
     Author: Matthew J. DeGarmo
     Handle: @matthewjdegarmo
 #>
-function Update-Powershell() {
+function Update-PowerShell() {
     [CmdletBinding()]
     param(
         [switch] $Preview,
@@ -35,9 +34,4 @@ function Update-Powershell() {
     if ($PSBoundParameters.ContainsKey('Quiet')) { $QuietOption = '-Quiet' }
     Invoke-Expression -Command "& {$(Invoke-RestMethod https://aka.ms/install-powershell.ps1)} -UseMSI $PreviewOption $QuietOption"
 }
-
-
-
-
-
-
+#EndRegion Update-PowerShell

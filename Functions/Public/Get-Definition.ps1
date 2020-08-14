@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Get-Definition
 <#
 .SYNOPSIS
     Gets the back-end definition of a function.
@@ -45,5 +44,4 @@ function Get-Definition() {
 
     $returnDefinition.ToString()
 }
-
-
+#EndRegion Get-Definition

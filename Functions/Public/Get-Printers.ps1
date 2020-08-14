@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Get-Printers
 <#
 .SYNOPSIS
     Get printers for local or remote PC
@@ -25,13 +24,14 @@
 Function Get-Printers {
     [CmdletBinding()]
     Param (
-        [Parameter(Mandatory = $false)]$ComputerName
+        [Parameter(Mandatory = $false)]
+        [String] $ComputerName
     )
 
-        Get-CimInstance cim_printer -computer $computer | Select-Object Name, Drivername, Portname, Status, SystemName, local, shared, CapabilityDescriptions
+    $Params = @{
+        ClassName = 'CIM_Printer'
+    }
+    if ($ComputerName) {$Params += @{ComputerName = $ComputerName}}
+    Get-CimInstance @Params | Select-Object Name, Drivername, Portname, Status, SystemName, local, shared, CapabilityDescriptions
 }
-
-
-
-
-
+#EndRegion Get-Printers

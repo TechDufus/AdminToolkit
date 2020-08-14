@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Get-Management
 <#
 .SYNOPSIS
     Open Computer management
@@ -25,5 +24,4 @@ Function Get-Management {
     )
     compmgmt.msc /computer:$ComputerName
 }
-
-
+#EndRegion Get-Management

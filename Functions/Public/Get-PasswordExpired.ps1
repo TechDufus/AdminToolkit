@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Get-PasswordExpired
 <#
 .SYNOPSIS
     Generates list of ActiveDirectory users who have expired passwords
@@ -22,6 +21,4 @@ Function Get-PasswordExpired {
 
     Search-ADAccount -PasswordExpired
 }
-
-
-
+#EndRegion Get-PasswordExpired

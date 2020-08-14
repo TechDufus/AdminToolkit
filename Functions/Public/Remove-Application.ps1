@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Remove-Application
 <#
 .Synopsis
     Attempt to Uninstall an application.
@@ -27,7 +26,4 @@ Function Remove-Application {
 
     WMIC.exe product where name="$AppName" call uninstall
 }
-
-
-
-
+#EndRegion Remove-Application

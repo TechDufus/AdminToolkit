@@ -1,5 +1,4 @@
-#!/usr/bin/env pwsh
-
+#Region Get-FileOwner
 <#
 .Synopsis
     Display the owner of an item(s)
@@ -43,5 +42,4 @@ Function Get-FileOwner {
     Get-ChildItem @PSBoundParameters |
     Select-Object $HostName, $Owner, Name, Directory, $LastWrite, Length
 }
-
-
+#EndRegion Get-FileOwner
