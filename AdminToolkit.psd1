@@ -12,7 +12,7 @@
 RootModule = 'AdminToolkit.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.2'
+ModuleVersion = '1.0.3'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Desktop', 'Core'
@@ -117,7 +117,7 @@ PrivateData = @{
         # IconUri = ''
 
         # ReleaseNotes of this module
-        # ReleaseNotes = ''
+        ReleaseNotes = 'https://github.com/matthewjdegarmo/AdminToolkit/blob/master/CHANGELOG.md'
 
         # Prerelease string of this module
         # Prerelease = ''
