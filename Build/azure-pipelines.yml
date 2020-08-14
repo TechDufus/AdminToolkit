@@ -8,7 +8,7 @@ steps:
 - task: PowerShell@2
   displayName: 'Pester Tests'
   inputs:
-    filePath: 'Build/azure-pipelines.ps1'
+    filePath: 'Build/azure-tests.ps1'
     pwsh: true
 
 - task: PublishTestResults@2
@@ -16,3 +16,8 @@ steps:
     testResultsFormat: 'NUnit'
     testResultsFiles: '**/Test-AdminToolkitPester.xml'
     failTaskOnFailedTests: true
+
+# - task: PublishCodeCoverageResults@1
+#   inputs:
+#     codeCoverageTool: 'JaCoCo'
+#     summaryFileLocation: '**/Test-AdminToolkitCoverage.xml'
