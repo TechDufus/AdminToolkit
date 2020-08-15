@@ -2,6 +2,7 @@
 PowerShell Module to assist Windows Admins. This contains many useful administration and utility functions.
 
 [![Build Status](https://dev.azure.com/matthewjdegarmo/AdminToolkit/_apis/build/status/matthewjdegarmo.AdminToolkit?branchName=master)](https://dev.azure.com/matthewjdegarmo/AdminToolkit/_build/latest?definitionId=1&branchName=master)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/7032f1ab572241609ef3fc4e516352d1)](https://www.codacy.com/manual/matthewjdegarmo/AdminToolkit?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=matthewjdegarmo/AdminToolkit&amp;utm_campaign=Badge_Grade)
 [![PSGallery](https://img.shields.io/powershellgallery/v/AdminToolkit?color=G&label=PowerShell%20Gallery)](https://www.powershellgallery.com/packages/AdminToolkit/)
 [![Downloads](https://img.shields.io/powershellgallery/dt/AdminToolkit?label=Downloads)](https://www.powershellgallery.com/packages/AdminToolkit/)
 [![License](https://img.shields.io/github/license/matthewjdegarmo/AdminToolkit?color=g&label=License)](https://github.com/matthewjdegarmo/AdminToolkit/blob/master/LICENSE)
