@@ -1,5 +1,9 @@
 # Changelog for AdminToolkit
 
+## v1.0.4
++ Fixing Comment-Based help.
+  + Needed a blank line after the #Region declaration or it broke the built-in help.
+
 ## v1.0.3 🐱‍🚀
 + **Get-PCUpTime**: Now works when calling from PowerShell to a remote computer running Windows PowerShell.
     + This likewise would fix a Windows PowerShell instance running against a remote PowerShell instance.
