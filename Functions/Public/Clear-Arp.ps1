@@ -1,4 +1,5 @@
 #Region Clear-Arp
+
 <#
 .SYNOPSIS
     Use Netsh to clear ArpCache

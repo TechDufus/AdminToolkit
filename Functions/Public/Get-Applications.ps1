@@ -1,4 +1,5 @@
 #Region Get-Applications
+
 <#
 .SYNOPSIS
     List locally installed applications

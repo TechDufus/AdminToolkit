@@ -1,4 +1,5 @@
 #Region Update-PowerShell
+
 <#
 .SYNOPSIS
     This will both Install the latest release of PowerShell or update your current PowerShell.

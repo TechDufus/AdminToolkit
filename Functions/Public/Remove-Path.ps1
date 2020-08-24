@@ -1,4 +1,5 @@
 #Region Remove-Path
+
 <#
 .Synopsis
     Deletes folder recursively, so be careful. If -Include is empty, it will delete all files, otherwise it will delete only the ones you -Include.

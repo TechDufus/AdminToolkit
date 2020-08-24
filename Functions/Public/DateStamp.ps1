@@ -1,4 +1,5 @@
 #Region DateStamp
+
 <#
 .SYNOPSIS
     This is a filter used to place timestamps on any output messages.

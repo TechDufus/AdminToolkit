@@ -1,4 +1,5 @@
 #Region Reset-NetworkStack
+
 <#
 .SYNOPSIS
     Reset Network Stack. Will require a reboot.

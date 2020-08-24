@@ -1,4 +1,5 @@
 #Region Get-Management
+
 <#
 .SYNOPSIS
     Open Computer management

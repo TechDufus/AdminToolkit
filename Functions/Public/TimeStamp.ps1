@@ -1,4 +1,5 @@
 #Region TimeStamp
+
 <#
 .SYNOPSIS
     This is a filter used to place colorized timestamps on any output messages.

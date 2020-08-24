@@ -1,4 +1,5 @@
 #Region Get-FolderSize
+
 <#
 .SYNOPSIS
     Quickly calculate the size of a directory.

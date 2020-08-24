@@ -1,4 +1,5 @@
 #Region Copy-WithProgress
+
 <#
 .SYNOPSIS
     This function performs a copy of a specified object recursively to a specified location.

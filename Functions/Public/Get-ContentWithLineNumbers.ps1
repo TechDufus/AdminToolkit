@@ -1,4 +1,5 @@
 #Region Get-ContentWithLineNumbers
+
 <# 
 .Synopsis
     Mimic Unix / Linux tool nl number lines

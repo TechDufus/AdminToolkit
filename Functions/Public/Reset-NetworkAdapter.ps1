@@ -1,4 +1,5 @@
 #Region Reset-NetworkAdapter
+
 <#
 .SYNOPSIS
     Reset a network interface.

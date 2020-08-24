@@ -1,4 +1,5 @@
 #Region Get-CIDRNotationBySubnetMask
+
 <#
 .SYNOPSIS
     Quickly generate the CIDR "slash" notation for a given subnet mask.

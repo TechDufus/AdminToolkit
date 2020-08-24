@@ -1,4 +1,5 @@
 #Region Get-Definition
+
 <#
 .SYNOPSIS
     Gets the back-end definition of a function.

@@ -1,4 +1,5 @@
 #Region New-Folder
+
 <#
 .SYNOPSIS
     Easily create a new folder in the current working directory.

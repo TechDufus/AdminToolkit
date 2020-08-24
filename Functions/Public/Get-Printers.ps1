@@ -1,4 +1,5 @@
 #Region Get-Printers
+
 <#
 .SYNOPSIS
     Get printers for local or remote PC

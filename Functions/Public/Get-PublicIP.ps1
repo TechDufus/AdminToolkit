@@ -1,4 +1,5 @@
 #Region Get-PublicIP
+
 <#
 .SYNOPSIS
     Generates your current Public IP Information

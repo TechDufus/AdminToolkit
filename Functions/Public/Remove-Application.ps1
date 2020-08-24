@@ -1,4 +1,5 @@
 #Region Remove-Application
+
 <#
 .Synopsis
     Attempt to Uninstall an application.

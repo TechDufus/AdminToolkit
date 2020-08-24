@@ -1,4 +1,5 @@
 #Region Remove-PrintQueue
+
 <#
 .Synopsis
     Quickly clear print que from all installed printers.
