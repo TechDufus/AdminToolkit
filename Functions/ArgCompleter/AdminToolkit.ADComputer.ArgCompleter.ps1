@@ -9,5 +9,5 @@ $AdminToolkitADComputernameArgCompleter = {
     }
     (Get-ADComputer -filter { Name -like $Filter }).Name
 }
-Register-ArgumentCompleter -CommandName Deploy-LocalScheduledTask -ParameterName ComputerName -ScriptBlock $AdminToolkitADComputernameArgCompleter
+Register-ArgumentCompleter -CommandName Push-LocalScheduledTask,Get-RebootLogs,Clear-CCMCache -ParameterName ComputerName -ScriptBlock $AdminToolkitADComputernameArgCompleter
 #EndRegion $AdminToolkitADComputernameArgCompleter
