@@ -2,10 +2,10 @@
 
 ## v1.0.5
 + New Functions:
-  + Get-RebootLogs
-  + Clear-CCMCache
-+ Added new functions to AD Argument Completer for their -ComputerName parameters.
-+ Correctly registered `Push-LocalScheduledTask`'s -ComputerName with argument completion.
+  + `Get-RebootLogs`
+  + `Clear-CCMCache`
++ Added new functions to AD Argument Completer for their `-ComputerName` parameters.
++ Correctly registered `Push-LocalScheduledTask`'s `-ComputerName` with argument completion.
 
 ## v1.0.4
 + Fixing Comment-Based help.
