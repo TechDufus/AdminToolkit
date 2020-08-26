@@ -26,7 +26,7 @@
     -----------
     This will attempt to connect to each computer listed to clear the local CCM Cache.
 .NOTES
-    Author: Matthew J DeGarmo / Steve Chramosta
+    Author: Matthew J DeGarmo
 #>
 function Clear-CCMCache() {
     [CmdletBinding()]
