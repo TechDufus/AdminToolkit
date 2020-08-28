@@ -12,10 +12,10 @@
   + Needed a blank line after the #Region declaration or it broke the built-in help.
 
 ## v1.0.3 🐱‍🚀
-+ **Get-PCUpTime**: Now works when calling from PowerShell to a remote computer running Windows PowerShell.
++ `Get-PCUpTime`: Now works when calling from PowerShell to a remote computer running Windows PowerShell.
     + This likewise would fix a Windows PowerShell instance running against a remote PowerShell instance.
-+ **Get-CIDRNotationBySubnetMask**: Now gives targeted error message if an improperly formatted SubnetMask is supplied.
-    + EXAMPLE: Get-CIDRNotationBySubnetMask 255.253.255.0
++ `Get-CIDRNotationBySubnetMask`: Now gives targeted error message if an improperly formatted SubnetMask is supplied.
+    + EXAMPLE: `Get-CIDRNotationBySubnetMask 255.253.255.0`
     + <span style="color:red">Get-CIDRNotationBySubnetMask : Invalid Subnet Mask value: '253' in 255.\[253\].255.0</span>
 + Added Regions to each script file. Should help organize the .psm1 file POST-Build.
 + Added Region detection to Pester tests.
