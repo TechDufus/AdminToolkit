@@ -1,5 +1,9 @@
 # Changelog for AdminToolkit
 
+## v1.0.6
++ Tests:
+  + Added Pester test for '.NOTES' section in all comment-based help for public functions.
+
 ## v1.0.5
 + New Functions:
   + `Get-RebootLogs`
