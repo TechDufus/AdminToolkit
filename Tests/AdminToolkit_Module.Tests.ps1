@@ -33,6 +33,9 @@ Describe "AdminToolkit Module Public Tests" {
                 It "Should have EXAMPLE section in help" {
                     $CurrentFunction.FullName | Should -FileContentMatch '.EXAMPLE'
                 }
+                It "Should have NOTES section in help" {
+                    $CurrentFunction.FullName | Should -FileContentMatch '.NOTES'
+                }
                 It "Should be an advanced function" {
                     $CurrentFunction.FullName | Should -FileContentMatch 'function'
                     $CurrentFunction.FullName | Should -FileContentMatch 'cmdletbinding'
