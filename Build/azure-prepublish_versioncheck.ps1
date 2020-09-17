@@ -8,7 +8,7 @@ $PipelineSourceModule = Test-ModuleManifest -Path ([System.IO.Path]::Combine('Ad
 #Ensure this is either an initial publish to PSGallery, or that the GitHub version is higher than the PSGallery version
 if ($PipelineSourceModule.Version -gt $PSGalleryModule.Version -or (-Not($PSGalleryModule))) {
   Write-Output 'Building Module:...'
-  & ([System.IO.Path]::Combine("$PSScriptRoot",'AdminToolkit','Build','azure-build.ps1'))
+  & ([System.IO.Path]::Combine("$PSScriptRoot",'azure-build.ps1'))
   $CurrentModule = Test-ModuleManifest -Path ([System.IO.Path]::Combine("AdminToolkit_Build","AdminToolkit","AdminToolkit.psd1"))
   
   Write-Output "PSGallery: v$($PSGalleryModule.Version)"
