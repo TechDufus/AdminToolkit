@@ -1,6 +1,6 @@
 # Changelog for AdminToolkit
 
-## v1.0.6
+## v1.0.6 🏈🏈
 + Tests:
   + Added Pester test for '.NOTES' section in all comment-based help for public functions.
 + `Get-Applications`
