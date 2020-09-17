@@ -19,8 +19,8 @@
 Function Get-Applications {
     [CmdletBinding()]
     param()
-    Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* |
-    Select-Object DisplayName, DisplayVersion, Publisher, InstallDate |
+    $RegPath = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall", "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall"
+    Get-ChildItem -Path $RegPath | Get-ItemProperty |
     Sort-Object DisplayName
 }
 #EndRegion Get-Applications
