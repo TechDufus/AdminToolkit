@@ -3,6 +3,10 @@
 ## v1.0.6
 + Tests:
   + Added Pester test for '.NOTES' section in all comment-based help for public functions.
++ `Get-Applications`
+  + More robust application discovery for 64-bit OS.
++ `Remove-Application`
+  + More robust method of uninstalling objects from Get-Applications
 
 ## v1.0.5
 + New Functions:
