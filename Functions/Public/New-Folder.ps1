@@ -18,16 +18,12 @@
 function New-Folder() {
     [CmdletBinding()]
     param (
-        [Parameter(Mandatory,Position=0)]
+        [Parameter(Mandatory, Position = 0)]
         [string] $FolderName
     )
-    Write-Verbose "Checking to see if folder ``$FolderName`` exists at $(Get-Location)"
-    if (-Not (Test-Path -Path ".\$FolderName")) {
-        Write-Verbose "Folder ``$FolderName`` does not exist. Creating..."
-        New-Item -Name $FolderName -ItemType Directory
-    }
-    else {
-        Write-Error "Folder ``$FolderName`` already exists at $(Get-Location)."
+
+    process {
+        New-Item $FolderName -ItemType Directory
     }
 }
 #EndRegion New-Folder
