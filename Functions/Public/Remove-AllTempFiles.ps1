@@ -51,7 +51,7 @@ Function Remove-AllTempFiles() {
         Get-ChildItem -path "\\$ComputerName\C$\windows\logs" -Include '*.log' -Recurse -force | Remove-Item -force -Recurse
         Get-ChildItem -path "\\$ComputerName\C$\windows\logs" -Include '*.cab' -Recurse -force | Remove-Item -force -Recurse
         Get-ChildItem -path "\\$ComputerName\C$\ProgramData\Microsoft\Windows\WER" -Include '*.*' -Recurse -force | Remove-Item -force -Recurse
-        Get-ChildItem -path "\\$ComputerName\C$\$recycle.bin" -Include '*' -Recurse -force | Remove-Item -force -Recurse
+        Get-ChildItem -path "\\$ComputerName\C$\`$recycle.bin" -Include '*' -Recurse -force | Remove-Item -force -Recurse
         Get-ChildItem -path "\\$ComputerName\C$\Users\*\AppData\Local\Google\Chrome\User Data\Default\Cache\" -include '*.*' -Recurse -force | Remove-Item -force -Recurse
         Get-ChildItem -path "\\$ComputerName\C$\Users\*\AppData\Local\Microsoft\Terminal Server Client\" -include '*.*' -Recurse -force | Remove-Item -force -Recurse
         $tempfolders = @("\\$ComputerName\C$\Windows\Temp\*", "\\$ComputerName\C$\Windows\Prefetch\*", "\\$ComputerName\C$\Documents and Settings\*\Local Settings\temp\*", "\\$ComputerName\C$\Users\*\Appdata\Local\Temp\*")
@@ -78,7 +78,7 @@ Function Remove-AllTempFiles() {
         Get-ChildItem -path "C:\windows\" -Include '*.log' -Recurse -force | Remove-Item -force -Recurse
         Get-ChildItem -path "C:\windows\logs" -Include '*.cab' -Recurse -force | Remove-Item -force -Recurse
         Get-ChildItem -path "C:\ProgramData\Microsoft\Windows\WER" -Include '*.*' -Recurse -force | Remove-Item -force -Recurse
-        Get-ChildItem -path "c:\$recycle.bin" -Include '*' -Recurse -force | Remove-Item -force -Recurse
+        Get-ChildItem -path "c:\`$recycle.bin" -Include '*' -Recurse -force | Remove-Item -force -Recurse
         Get-ChildItem -path "C:\Users\*\AppData\Local\Google\Chrome\User Data\Default\Cache\" -include '*.*' -Recurse -force | Remove-Item -force -Recurse
         Get-ChildItem -path "C:\Users\*\AppData\Local\Microsoft\Terminal Server Client\" -include '*.*' -Recurse -force | Remove-Item -force -Recurse
         $tempfolders = @("C:\Windows\Temp\*", "C:\Windows\Prefetch\*", "C:\Documents and Settings\*\Local Settings\temp\*", "C:\Users\*\Appdata\Local\Temp\*")
