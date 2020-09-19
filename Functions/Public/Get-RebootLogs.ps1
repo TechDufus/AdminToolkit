@@ -27,21 +27,22 @@ function Get-RebootLogs() {
     [CmdletBinding()]
     param (
         [Parameter()]
-        [string] $ComputerName
+        [string] $ComputerName = $env:COMPUTERNAME
     )
     begin {}
     
     process {
         try {
             $params = @{
-                LogName = 'System'
+                LogName      = 'System'
                 ComputerName = $ComputerName.ToUpper()
-                ErrorAction = 'SilentlyContinue'
-                Verbose = $Verbose
+                ErrorAction  = 'SilentlyContinue'
+                Verbose      = $Verbose
             }
             Write-Verbose "Gathering $($params.LogName) logs from $($params.ComputerName) with ID 1074."
-            Get-WinEvent @params | Where-Object {$_.ID -eq '1074'}
-        } catch {
+            Get-WinEvent @params | Where-Object { $_.ID -eq '1074' }
+        }
+        catch {
             Write-Error "$($_.Exception.Message)"
         }
     }
