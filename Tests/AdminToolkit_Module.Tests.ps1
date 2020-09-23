@@ -16,9 +16,12 @@ Describe "AdminToolkit Module Public Tests" {
         }
 
         Get-ChildItem ([System.IO.Path]::Combine($PSScriptRoot, '..', 'Functions', 'Public', '*.ps1')) -Exclude *tests.ps1, Aliases.ps1 | ForEach-Object {
-            Context "Test File: $($_.BaseName)" {
+            Context "Test Function: $($_.BaseName)" {
                 $PSDefaultParameterValues = @{
                     "It:TestCases" = @{ CurrentFunction = $_ }
+                }
+                It "Should register command with Get-Command" {
+                    (Get-Command $CurrentFunction.BaseName) | Should -BeOfType [System.Management.Automation.CommandInfo]
                 }
                 It "Should have comment-based help block" {
                     $CurrentFunction.FullName | Should -FileContentMatch '<#'
