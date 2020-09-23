@@ -30,6 +30,12 @@ Describe "AdminToolkit Module Public Tests" {
                 It "Should have DESCRIPTION section in help" {
                     $CurrentFunction.FullName | Should -FileContentMatch '.DESCRIPTION'
                 }
+                It "Should have EXAMPLE section in help" {
+                    $CurrentFunction.FullName | Should -FileContentMatch '.EXAMPLE'
+                }
+                It "Should have NOTES section in help" {
+                    $CurrentFunction.FullName | Should -FileContentMatch '.NOTES'
+                }
                 It "Should have .PARAMETER help for each defined parameter" {
                     $Params = ((Get-Command $CurrentFunction.BaseName).Parameters).Keys | Where-Object { $_ -notin ([System.Management.Automation.PSCmdlet]::CommonParameters) -and $_ -notin ([System.Management.Automation.PSCmdlet]::OptionalCommonParameters) }
                     $Params | Foreach-Object {
