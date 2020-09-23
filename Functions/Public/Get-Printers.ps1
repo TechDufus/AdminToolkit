@@ -6,6 +6,10 @@
 
 .Description
     This function will attempt to gather printer information for a local or remote PC.
+
+.PARAMETER ComputerName
+    Specify the remote computer to query.
+
 .EXAMPLE
     PS> Get-Printers
     
@@ -32,7 +36,7 @@ Function Get-Printers {
     $Params = @{
         ClassName = 'CIM_Printer'
     }
-    if ($ComputerName) {$Params += @{ComputerName = $ComputerName}}
+    if ($ComputerName) { $Params += @{ComputerName = $ComputerName } }
     Get-CimInstance @Params | Select-Object Name, Drivername, Portname, Status, SystemName, local, shared, CapabilityDescriptions
 }
 #EndRegion Get-Printers

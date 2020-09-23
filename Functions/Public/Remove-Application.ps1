@@ -7,6 +7,9 @@
 .DESCRIPTION
     This command uninstalls an application. Good for when elevated privileges are needed from a user session.
 
+.PARAMETER Application
+    Specify the application name to delete.
+
 .EXAMPLE
     Specify the installed application being uninstalled. The full application name must be used.
 

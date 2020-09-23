@@ -5,6 +5,12 @@
     This is a filter used to place colorized timestamps on any output messages.
 .DESCRIPTION
     The function `TimeStamp` is a colorized version of this command `DateStamp`, but `TimeStamp` output cannot be written to a file. You will want to use `DateStamp` if you are going to output your messages into a log or txt file.
+.PARAMETER Color
+    Specify the color to display the message text.
+    See `[System.ConsoleColor].GetEnumNames()` for full list of colors.
+.PARAMETER NoNewLine
+    Specify this to change the color of the first segment of text, and not the rest. See Example #3.
+
 .EXAMPLE
     "ERROR: Something bad happened on this line of the script" | TimeStamp
 

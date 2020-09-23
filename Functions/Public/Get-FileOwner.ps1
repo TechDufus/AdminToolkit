@@ -7,6 +7,12 @@
 .Description
     This Function lists file owners within a given path
 
+.PARAMETER Path
+    Specify the file / directory path to query.
+
+.PARAMETER Recursive
+    Search recursively.
+
 .Example
     PS> Get-FileOwner C:\Users
 

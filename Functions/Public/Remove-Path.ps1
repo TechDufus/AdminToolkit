@@ -7,6 +7,13 @@
 .DESCRIPTION
     This command deletes all files recursively in a path that match the included filename.
 
+.PARAMETER Path
+    Specify the path to recursively delete.
+
+.PARAMETER Include
+    Restrict the deletion to specific file names, types, etc.. by specifying them in this parameter.
+    See `Get-Help Get-ChildItem -Parameter Include` for more information.
+
 .EXAMPLE
     PS>Remove-Path C:\temp
 

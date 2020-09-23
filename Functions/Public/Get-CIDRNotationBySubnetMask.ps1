@@ -5,6 +5,8 @@
     Quickly generate the CIDR "slash" notation for a given subnet mask.
 .DESCRIPTION
     This will provide the CIDR value for a subnet mask. This function will also error if the subnet mask is not valid.
+.PARAMETER SubnetMask
+    Specify the subnet mask to generate the CIDR Notation for.
 .EXAMPLE
     PS> Get-CIDRNotationBySubnetMask 255.255.255.0
 
@@ -19,7 +21,7 @@
 function Get-CIDRNotationBySubnetMask() {
     [CmdletBinding()]
     param (
-        [Parameter(Mandatory,Position=0)]
+        [Parameter(Mandatory, Position = 0)]
         [String] $SubnetMask
     )
     $cidr = 0
@@ -40,9 +42,9 @@ function Get-CIDRNotationBySubnetMask() {
                 $SplitSubnet[$octet] = "[$($SplitSubnet[$octet])]"
                 $ErrorSubnet = $SplitSubnet -join '.'
                 Write-Error -Message "Invalid Subnet Mask value: `'$_`' in $ErrorSubnet" `
-                            -Category InvalidArgument `
-                            -RecommendedAction "Provide a proper SubnetMask" `
-                            -ErrorAction Stop
+                    -Category InvalidArgument `
+                    -RecommendedAction "Provide a proper SubnetMask" `
+                    -ErrorAction Stop
                 $BadMask = $true
             }
         }

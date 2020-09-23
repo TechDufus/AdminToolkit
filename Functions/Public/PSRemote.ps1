@@ -9,6 +9,10 @@
     This parameter specifies what host to attempt an Enter-PSSession with.
 .PARAMETER Credential
     This parameter is used to change the current account for the PSSession.
+.PARAMETER IncludeModule
+    This parameter specifies any local installed / imported modules to be defined in the remote scope. Essentially bringing any local modules with you without installing them on the remote machine.
+.PARAMETER IncludeProfile
+    Specify a local profile to load in the remote session.
 .INPUTS
     System.String[]
         You must specify the value for Computername. You cannot pipe a value to this function.

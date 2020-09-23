@@ -5,6 +5,10 @@
     Mimic Unix / Linux tool nl number lines
 .Description
     Print file content with numbered lines no original nl options supported
+.PARAMETER FileName
+    Specify a file to extract and prefix with line numbers.
+.PARAMETER InputObject
+    Specify an object of text to prefix with line numbers.
 .Example
     PS> Get-ContentWithLineNumbers -FileName C:\Foo.txt
     

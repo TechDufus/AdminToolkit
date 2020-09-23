@@ -6,6 +6,8 @@
 
 .Description
     Returns useful informaion on the local endpoint or another.
+.PARAMETER ComputerName
+    Specify a remote computer to generate information for.
 .EXAMPLE
     PS> Get-PCInfo -ComputerName Computer1
 

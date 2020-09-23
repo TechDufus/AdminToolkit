@@ -7,8 +7,11 @@
 .DESCRIPTION
     Opens Computer management connected for a PC, local or remote. Default is local.
 
+.PARAMETER ComputerName
+    Specify a remote computer to run against.
+
 .Example
-    PS> Get-Management CGO-999999-H
+    PS> Get-Management Test-999999-H
 
     Description
     -----------

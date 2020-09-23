@@ -5,6 +5,8 @@
     Quickly clear print que from all installed printers.
 .DESCRIPTION
     This command clears print queues for all printers, including network printers. If you specify a single printer using -Printer, you will NOT clear all installed printers.
+.PARAMETER Printer
+    Specify the printer name to clear.
 .EXAMPLE
     PS> Remove-PrintQueue -Printer Some_printer_name1
     

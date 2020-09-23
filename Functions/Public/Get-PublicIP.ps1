@@ -7,6 +7,9 @@
 .DESCRIPTION
     Returns WhoIS public IP info for your location or any specified public IP. By Default, returns your current public IP info.
 
+.PARAMETER IP
+    Specify the IP Address to look up information for. This uses your current public IP by default.
+
 .EXAMPLE
     PS> Get-PublicIP
 

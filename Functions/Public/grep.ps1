@@ -6,6 +6,8 @@
 .DESCRIPTION
     This is a windows version of the linux `grep` command. I still need to figure out how to NOT import this command when on a linux system.
     This is basically a shorter `Select-String`, and does not support other grep flags as on a Linux system.
+.PARAMETER Regex
+    Specify the regex pattern to filter for.
 .EXAMPLE
     Get-Process | grep powershell
     

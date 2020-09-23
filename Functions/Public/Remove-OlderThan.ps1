@@ -7,6 +7,13 @@
 .Description
     This scripts function is to delete files and folders older than x days recursively.
 
+.PARAMETER Path
+    Specify the root path to delete items from.
+.PARAMETER DaysBack
+    Specify the amount of days old since a file was edited to delete.
+.PARAMETER Recurse
+    Search recursively for files.
+
 .Example
     Delete-OlderThan -Path "C:\Folder" -DaysBack 90
 

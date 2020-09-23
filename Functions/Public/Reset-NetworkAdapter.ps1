@@ -7,6 +7,9 @@
 .DESCRIPTION
     Reset a specified interface with -Interface.
 
+.PARAMETER Interface
+    Specify the name of the network interface name to reset.
+
 .EXAMPLE
     Reset-NetworkAdapter -Interface "Local Area Connection"
 

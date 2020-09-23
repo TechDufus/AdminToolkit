@@ -5,6 +5,8 @@
     Easily create a new folder in the current working directory.
 .DESCRIPTION
     This will create a new directory in the current working directory.
+.PARAMETER Name
+    Spedify the name for the new folder.
 .EXAMPLE
     PS> New-Folder Foobar
     
@@ -19,7 +21,7 @@ function New-Folder() {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory, Position = 0)]
-        [string] $FolderName
+        [string] $Name
     )
 
     process {

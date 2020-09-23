@@ -6,7 +6,7 @@
 .DESCRIPTION
     This will query the local PC OR an array of remote PC's 
 .PARAMETER ComputerName
-
+    Specify the remote computer to query.
 .INPUTS
     System.String[]
         You must specify the value for Credential. You cannot pipe a value to this function.

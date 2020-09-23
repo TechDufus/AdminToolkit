@@ -6,6 +6,8 @@
 
 .DESCRIPTION
     This function will calculate the disk space used by a specified directory. This uses the current directory by default.
+.PARAMETER Folder
+    Specify the folder to query. This defaults to the current directory.
 .EXAMPLE
     PS> Get-FolderSize
 

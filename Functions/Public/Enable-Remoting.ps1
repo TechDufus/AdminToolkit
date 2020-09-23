@@ -7,6 +7,15 @@ Enable PSRemoting via PSEXEC remotely.
 .Description
 This Command will enable PowerShell Remoting on a remote PC.
 
+.PARAMETER ComputerName
+    Specify a remote computer to run against.
+
+.PARAMETER Username
+    Specify a username to use to make the remote connection.
+
+.PARAMETER Password
+    Specify the respective password to match the Username provided.
+    
 .EXAMPLE
 PS> Enable-PSRemoting -computer PCName -username domain\username
 
@@ -27,7 +36,7 @@ Function Enable-Remoting {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, Mandatory)]
-        [string] $Computer,
+        [string] $ComputerName,
         [Parameter(Position = 1, Mandatory)]
         [string] $Username,
         [Parameter(Position = 2)]
@@ -35,8 +44,8 @@ Function Enable-Remoting {
     )
 
     #Enabling PSRemoting
-    PsExec.exe \\$Computer -s winrm.cmd quickconfig -q
-    PsExec.exe \\$Computer -u $Username -p $Password powershell.exe cmd /c "enable-psremoting -force"
+    PsExec.exe \\$ComputerName -s winrm.cmd quickconfig -q
+    PsExec.exe \\$ComputerName -u $Username -p $Password powershell.exe cmd /c "enable-psremoting -force"
 
     try {
         Test-WSMan $Computer

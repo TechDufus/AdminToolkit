@@ -7,6 +7,9 @@
 .Description
     This Command removes log files, temp files, and empties the recycle bin. Access denied errors do not indicate a failure of the script. Run for the local or a remote PC.
 
+.PARAMETER ComputerName
+    Specify a remote computer to run against.
+
 .EXAMPLE
     PS> Remove-All
 

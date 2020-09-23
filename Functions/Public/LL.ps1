@@ -6,6 +6,10 @@
 .DESCRIPTION
     This function will change the color of object names using Get-ChildItem based on the object type or extension.
     You can define more extensions and their associated colors if you wish.
+.PARAMETER Directory
+    Specify the directory to get items for. Default is '.' or current directory.
+.PARAMETER All
+    Essentially this is a `-Force` switch on Get-ChildItem. By default this is set to $false.
 .EXAMPLE
     PS> LL C:\Temp
     
@@ -31,7 +35,8 @@ function LL {
     $originalForeground = $host.ui.rawui.foregroundColor 
     if ( $All ) { 
         $toList = Get-ChildItem -force $Directory 
-    } else { 
+    }
+    else { 
         $toList = Get-ChildItem $Directory 
     }
     foreach ($Item in $toList) { 
