@@ -1,5 +1,5 @@
 #Requires -Modules @{ModuleName="Pester";ModuleVersion="5.0.0"}
-Remove-Module AdminToolkit
+Remove-Module AdminToolkit -ErrorAction SilentlyContinue
 Import-Module ([System.IO.Path]::Combine($PSScriptRoot, '..', 'AdminToolkit.psd1')) -Force
 Describe "AdminToolkit Module Public Tests" {
     It "Imports Successfully" {
