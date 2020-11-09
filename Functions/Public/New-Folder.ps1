@@ -25,7 +25,7 @@ function New-Folder() {
     )
 
     process {
-        New-Item $FolderName -ItemType Directory
+        New-Item $Name -ItemType Directory
     }
 }
 #EndRegion New-Folder
