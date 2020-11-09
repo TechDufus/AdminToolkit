@@ -10,6 +10,8 @@
   + More robust application discovery for 64-bit OS.
 + `Remove-Application`
   + More robust method of uninstalling objects from Get-Applications
++ `Copy-WithProgress`
+  + Added '-IncludeACL' switch to move file ACLs.
 
 ## v1.0.5
 + New Functions:
