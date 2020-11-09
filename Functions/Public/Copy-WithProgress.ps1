@@ -9,6 +9,8 @@
     Source should specify the object to be copied by name. This value must be the FullPath and cannot be shortened. An example would be if you were in the C:\Scripts directory, you could not specify '.\TestFile.ps1' as the source location, you must specify 'C:\Scripts\TestFile.ps1' in this case.
 .PARAMETER Destination
     Destination should specify the target location of the specified Source by name. This value must be the FullPath and cannot be shortened. An example would be if you were in the C:\Scripts directory, you could not specify '.\TestFile.ps1' as the Destination location, you must specify 'C:\Scripts\TestFile.ps1' in this case
+.PARAMETER IncludeACL
+    With this present, this will copy the ACL from each source file and apply it to the destination file.
 .INPUTS
     System.String[]
         This function does not accept pipeline data. The values for all parameters must be specified.
@@ -17,9 +19,16 @@
         This function does not produce output except for the Write-Progress data.
 .EXAMPLE
     PS>Copy-WithProgress -Source "C:\Scripts\TestFile.ps1" -Destination "C:\Temp\TestFile.ps1"
+
     Description
     -----------
     This will copy the source file to the file specified in Destination. Note that the filename for Destination can be anything and does not have to match the original.
+.EXAMPLE
+    PS>Copy-WithProgress -Source .\Folder -Destination .\Folder1 -IncludeACL
+
+    Description
+    -----------
+    This will copy all contents of .\Folder to .\Folder1 and include the Acl / NTFS permissions.
 .NOTES
     Author: Matthew J. DeGarmo
     Handle: @matthewjdegarmo
@@ -31,15 +40,19 @@ function Copy-WithProgress() {
             ValueFromPipelineByPropertyName = $true,
             Position = 0)]
         $Source,
+
         [Parameter(Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
             Position = 1)]
-        $Destination
+        $Destination,
+
+        [Parameter()]
+        [Switch] $IncludeACL
     )
 
     Write-Progress -Activity "Gathering data from $Source"
-    $Source = $Source.tolower()
-    $Destination = $Destination.tolower()
+    $Source = (Resolve-Path -Path $Source).Path.Replace('Microsoft.PowerShell.Core\FileSystem::', '').ToLower()
+    $Destination = $Destination.Replace('Microsoft.PowerShell.Core\FileSystem::', '').ToLower()
     $Filelist = Get-Childitem $Source -Recurse
     $Total = $Filelist.count
     $Position = 0
@@ -52,16 +65,19 @@ function Copy-WithProgress() {
             { ($_ -lt '1000000000') -and ($_ -ge '10000000') } { $TotalSize = "{0:N2} MB" -f ($_ / 1MB) }
             { $_ -lt '1000000' } { $TotalSize = "{0:N2} KB" -f ($_ / 1KB) }
         }
-
         $FileSize = ($File | Measure-Object -Property Length -Sum -ErrorAction SilentlyContinue).Sum
-        $Filename = $File.Fullname.ToLower().Replace($Source, '')
+        $Filename = $File.Fullname.ToLower().Replace($Source, '').Replace('Microsoft.PowerShell.Core\FileSystem::', '')
         $DestinationFile = ($Destination + $Filename)
         $Position++
         $Percent = [int]$(($Position / $Total) * 100)
         Write-Progress -Activity "Copying data from '$Source' to '$Destination'" -Status "Copying File $Position of $total -  $TotalSize remaining..." -PercentComplete (($Position / $total) * 100) -CurrentOperation "$Percent% complete"
         #$null = New-Item -Name $File.FullName -Path $DestinationFile -ItemType File -Force
-        Copy-Item $File.FullName -Destination $DestinationFile -Force -ErrorAction SilentlyContinue -Container | Out-Null
-        $Size = ($Size - $FileSize)               
+        $null = Copy-Item $File.FullName -Destination $DestinationFile -Force -ErrorAction SilentlyContinue -Container
+        If ($IncludeACL.IsPresent) {
+            $SourceFileACL = Get-Acl -Path $File.FullName
+            Set-Acl -Path $DestinationFile -AclObject $SourceFileACL
+        }
+        $Size = ($Size - $FileSize)
     }
     Write-Progress -Activity "Moving data from '$Source' to '$Destination'" -Completed 
 }
