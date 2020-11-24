@@ -1,5 +1,10 @@
 # Changelog for AdminToolkit
 
+## v1.0.8
++ `Copy-WithProgress`
+  + `-Destination` parameter now creates destination path properly.
+    + **BUG**: if you did not include a trailing '\' at the end of the destination path, it would copy your files one directory higher, and any 1st level folders copied would turn into a folder named after the parent folder and the nested folder name.
++ 
 ## v1.0.7
 + Misc. code improvements
 
