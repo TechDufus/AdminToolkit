@@ -34,9 +34,9 @@
     Author: Matthew J. DeGarmo
     Handle: @matthewjdegarmo
 
-    You can either submit a [PR](https://github.com/matthewjdegarmo/HelpDesk/pulls)
-        or create an [Issue](https://github.com/matthewjdegarmo/HelpDesk/issues/new)
-        on this GitHub project at https://github.com/matthewjdegarmo/HelpDesk
+    You can either submit a [PR](https://github.com/matthewjdegarmo/AdminToolkit/pulls)
+        or create an [Issue](https://github.com/matthewjdegarmo/AdminToolkit/issues/new)
+        on this GitHub project at https://github.com/matthewjdegarmo/AdminToolkit
     
     Change Log:
     Version: 2.0 - Added -IncludeModule parameter. This will allow you to import a local module into your remote session.
