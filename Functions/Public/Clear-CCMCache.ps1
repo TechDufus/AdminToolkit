@@ -27,6 +27,10 @@
     This will attempt to connect to each computer listed to clear the local CCM Cache.
 .NOTES
     Author: Matthew J. DeGarmo
+    
+    You can either submit a [PR](https://github.com/matthewjdegarmo/HelpDesk/pulls)
+        or create an [Issue](https://github.com/matthewjdegarmo/HelpDesk/issues/new)
+        on this GitHub project at https://github.com/matthewjdegarmo/HelpDesk
 #>
 function Clear-CCMCache() {
     [CmdletBinding()]

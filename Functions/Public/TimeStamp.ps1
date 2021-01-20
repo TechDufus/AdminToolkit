@@ -38,6 +38,10 @@
 .NOTES
     Author: Matthew J. DeGarmo
     Site: https://matthewjdegarmo.github.io
+
+    You can either submit a [PR](https://github.com/matthewjdegarmo/HelpDesk/pulls)
+        or create an [Issue](https://github.com/matthewjdegarmo/HelpDesk/issues/new)
+        on this GitHub project at https://github.com/matthewjdegarmo/HelpDesk
 #>
 filter TimeStamp($color, $NoNewLine) {
     # [CmdletBinding()] # This is to pass the advanced parameter pester tests.
