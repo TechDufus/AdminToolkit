@@ -1,0 +1,14 @@
+name: "Build and Publish"
+on: "push"
+
+jobs:
+  run:
+    name: Version Check and Publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+      - run: >
+          ./Build/build.ps1
+          -PSGalleryApiKey ${{ secrets.PSGALLERY_API_KEY }}
+        shell: pwsh
