@@ -21,7 +21,7 @@
         or create an [Issue](https://github.com/matthewjdegarmo/AdminToolkit/issues/new)
         on this GitHub project at https://github.com/matthewjdegarmo/AdminToolkit
 #>
-function Invoke-Speech {
+Function Invoke-Speech() {
     [CmdletBinding()]
     param (
         [Parameter(ValueFromPipeline = $true)]

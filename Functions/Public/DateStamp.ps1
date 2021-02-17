@@ -1,4 +1,8 @@
 #Region DateStamp
+<#
+This is to pass the cmdlet exporting pester tests since this is a filter
+Function DateStamp() {
+#>
 
 <#
 .SYNOPSIS
@@ -21,7 +25,7 @@
         or create an [Issue](https://github.com/matthewjdegarmo/AdminToolkit/issues/new)
         on this GitHub project at https://github.com/matthewjdegarmo/AdminToolkit
 #>
-filter DateStamp() {
+Filter DateStamp() {
     [CmdletBinding()]
     param()
     process {

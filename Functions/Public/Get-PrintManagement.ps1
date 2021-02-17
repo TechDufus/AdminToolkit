@@ -21,7 +21,7 @@
         or create an [Issue](https://github.com/matthewjdegarmo/AdminToolkit/issues/new)
         on this GitHub project at https://github.com/matthewjdegarmo/AdminToolkit
 #>
-Function Get-PrintManagement {
+Function Get-PrintManagement() {
     [CmdletBinding()]
     param (
         [string[]]$ComputerName = $env:COMPUTERNAME

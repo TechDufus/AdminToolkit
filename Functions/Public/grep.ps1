@@ -22,7 +22,7 @@
         or create an [Issue](https://github.com/matthewjdegarmo/AdminToolkit/issues/new)
         on this GitHub project at https://github.com/matthewjdegarmo/AdminToolkit
 #>
-function grep {
+Function grep() {
     # [CmdletBinding()] # This is to pass the advanced function pester tests.
     param(
         $regex

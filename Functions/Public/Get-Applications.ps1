@@ -20,7 +20,7 @@
         or create an [Issue](https://github.com/matthewjdegarmo/AdminToolkit/issues/new)
         on this GitHub project at https://github.com/matthewjdegarmo/AdminToolkit
 #>
-Function Get-Applications {
+Function Get-Applications() {
     [CmdletBinding()]
     param()
     $RegPath = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall", "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall"

@@ -22,7 +22,7 @@
     Change Log:
     Version: 1.0 - Function Creation.
 #>
-Function Reset-NetworkStack {
+Function Reset-NetworkStack() {
     [CmdletBinding()]
     param (
     )

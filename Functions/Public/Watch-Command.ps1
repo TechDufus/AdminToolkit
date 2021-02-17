@@ -31,7 +31,7 @@
         or create an [Issue](https://github.com/matthewjdegarmo/AdminToolkit/issues/new)
         on this GitHub project at https://github.com/matthewjdegarmo/AdminToolkit
 #>
-function Watch-Command() {
+Function Watch-Command() {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory, Position = 0)]

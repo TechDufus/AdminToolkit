@@ -31,7 +31,7 @@
     Change Log:
     Version: 1.0 - Function Creation.
 #>
-Function Remove-Application {
+Function Remove-Application() {
     [CmdletBinding()]
     Param (
         [Parameter(Mandatory, ValueFromPipeline)]

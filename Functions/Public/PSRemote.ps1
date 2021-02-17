@@ -42,7 +42,7 @@
     Version: 2.0 - Added -IncludeModule parameter. This will allow you to import a local module into your remote session.
     Version: 1.0 - Function Creation.
 #>
-function PSRemote() {
+Function PSRemote() {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $true, Position = 0)]

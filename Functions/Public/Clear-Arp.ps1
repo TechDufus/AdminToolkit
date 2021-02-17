@@ -19,7 +19,7 @@
         or create an [Issue](https://github.com/matthewjdegarmo/AdminToolkit/issues/new)
         on this GitHub project at https://github.com/matthewjdegarmo/AdminToolkit
 #>
-function Clear-Arp() {
+Function Clear-Arp() {
     [CmdletBinding()]
     param()
     netsh.exe interface ip delete arpcache

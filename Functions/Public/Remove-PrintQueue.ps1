@@ -24,7 +24,7 @@
     Change Log:
     Version: 1.0 - Function Creation.
 #>
-Function Remove-PrintQueue {
+Function Remove-PrintQueue() {
     [CmdletBinding()]
     param (
         [string]$Printer

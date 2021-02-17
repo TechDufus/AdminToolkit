@@ -1,6 +1,11 @@
 #Region TimeStamp
 
 <#
+This is to pass the cmdlet exporting pester tests since this is a filter
+Function TimeStamp() {
+#>
+
+<#
 .SYNOPSIS
     This is a filter used to place colorized timestamps on any output messages.
 .DESCRIPTION
@@ -43,10 +48,10 @@
         or create an [Issue](https://github.com/matthewjdegarmo/AdminToolkit/issues/new)
         on this GitHub project at https://github.com/matthewjdegarmo/AdminToolkit
 #>
-filter TimeStamp($color, $NoNewLine) {
-    # [CmdletBinding()] # This is to pass the advanced parameter pester tests.
-    # param () # This is to pass the advanced parameter pester tests.
-    # function # This is to pass the advanced parameter pester tests.
+Filter TimeStamp($color, $NoNewLine) {
+    # [CmdletBinding()] # This is to pass the advanced function pester tests.
+    # param () # This is to pass the advanced function pester tests.
+    # Function # This is to pass the advanced function pester tests.
     if ($color -eq 'NoNewLine') {
         $color = 'White'
         $NoNewLine = 'NoNewLine'

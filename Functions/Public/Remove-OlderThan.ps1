@@ -28,7 +28,7 @@
     Change Log:
     Version: 1.0 - Function Creation.
 #>
-Function Remove-OlderThan {
+Function Remove-OlderThan() {
     [CmdletBinding()]
     Param (
         [Parameter(Mandatory = $true)]$Path,

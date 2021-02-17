@@ -31,7 +31,7 @@
         or create an [Issue](https://github.com/matthewjdegarmo/AdminToolkit/issues/new)
         on this GitHub project at https://github.com/matthewjdegarmo/AdminToolkit
 #>
-Function Remove-Path {
+Function Remove-Path() {
     [CmdletBinding()]
     Param (
         [Parameter(Mandatory = $true)]$Path,

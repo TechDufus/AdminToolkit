@@ -37,7 +37,7 @@
         or create an [Issue](https://github.com/matthewjdegarmo/AdminToolkit/issues/new)
         on this GitHub project at https://github.com/matthewjdegarmo/AdminToolkit
 #>
-function Copy-WithProgress() {
+Function Copy-WithProgress() {
     [CmdletBinding()]
     Param (
         [Parameter(Mandatory = $true,

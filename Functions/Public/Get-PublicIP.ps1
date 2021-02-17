@@ -36,7 +36,7 @@
         or create an [Issue](https://github.com/matthewjdegarmo/AdminToolkit/issues/new)
         on this GitHub project at https://github.com/matthewjdegarmo/AdminToolkit
 #>
-Function Get-PublicIP {
+Function Get-PublicIP() {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0)]$IP

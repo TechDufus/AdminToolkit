@@ -24,7 +24,7 @@
     Change Log:
     Version: 1.0 - Function Creation.
 #>
-Function Reset-NetworkAdapter {
+Function Reset-NetworkAdapter() {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $true)]$Interface

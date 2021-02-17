@@ -30,7 +30,7 @@
         or create an [Issue](https://github.com/matthewjdegarmo/AdminToolkit/issues/new)
         on this GitHub project at https://github.com/matthewjdegarmo/AdminToolkit
 #>
-Function Get-Printers {
+Function Get-Printers() {
     [CmdletBinding()]
     Param (
         [Parameter(Mandatory = $false)]

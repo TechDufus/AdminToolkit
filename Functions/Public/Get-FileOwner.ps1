@@ -28,7 +28,7 @@
         or create an [Issue](https://github.com/matthewjdegarmo/AdminToolkit/issues/new)
         on this GitHub project at https://github.com/matthewjdegarmo/AdminToolkit
 #>
-Function Get-FileOwner {
+Function Get-FileOwner() {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory, Position = 0)]

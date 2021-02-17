@@ -22,7 +22,7 @@
         or create an [Issue](https://github.com/matthewjdegarmo/AdminToolkit/issues/new)
         on this GitHub project at https://github.com/matthewjdegarmo/AdminToolkit
 #>
-Function Get-FolderSize {
+Function Get-FolderSize() {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0)]$Folder = (Get-Location)

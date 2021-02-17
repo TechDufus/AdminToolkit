@@ -32,7 +32,7 @@
         or create an [Issue](https://github.com/matthewjdegarmo/AdminToolkit/issues/new)
         on this GitHub project at https://github.com/matthewjdegarmo/AdminToolkit
 #>
-function Clear-CCMCache() {
+Function Clear-CCMCache() {
     [CmdletBinding()]
     param(
         [Parameter()]

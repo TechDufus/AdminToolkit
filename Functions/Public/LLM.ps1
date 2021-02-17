@@ -19,7 +19,7 @@
         or create an [Issue](https://github.com/matthewjdegarmo/AdminToolkit/issues/new)
         on this GitHub project at https://github.com/matthewjdegarmo/AdminToolkit
 #>
-Function llm {
+Function llm() {
     [CmdletBinding()]
     param ()
     $signature = @"  

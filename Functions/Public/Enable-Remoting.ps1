@@ -36,7 +36,7 @@ This will enable remoting and then prompt for credentials
 
     This Function requires psexec. If you do not, download it with the sysinternals suite. Add psexec to one of your enviroment variable paths.
 #>
-Function Enable-Remoting {
+Function Enable-Remoting() {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, Mandatory)]

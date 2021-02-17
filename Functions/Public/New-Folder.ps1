@@ -21,7 +21,7 @@
         or create an [Issue](https://github.com/matthewjdegarmo/AdminToolkit/issues/new)
         on this GitHub project at https://github.com/matthewjdegarmo/AdminToolkit
 #>
-function New-Folder() {
+Function New-Folder() {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory, Position = 0)]
