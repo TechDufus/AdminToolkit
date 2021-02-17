@@ -9,6 +9,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@master
       - run: >
-          ./Build/build.ps1
+          ./Build/build.ps1 -DoNotPublish
           -PSGalleryApiKey ${{ secrets.PSGALLERY_API_KEY }}
         shell: pwsh

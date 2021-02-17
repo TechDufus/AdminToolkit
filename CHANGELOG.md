@@ -1,5 +1,12 @@
 # Changelog for AdminToolkit
 
+## v1.0.9
++ Syntax changes in function definitions
+  + This does not contain any features or major code changes.
++ New build process
+  + Testing, Building, and Publishing this module now exist exclusively within GitHub (from Azure DevOps)
+  + This change is to keep this project in the GitHub ecosystem and have a singular location to handle maintinance.
+
 ## v1.0.8
 + `Copy-WithProgress`
   + `-Destination` parameter now creates destination path properly.
