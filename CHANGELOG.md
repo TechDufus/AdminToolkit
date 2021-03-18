@@ -1,5 +1,13 @@
 # Changelog for AdminToolkit
 
+## v1.1
++ `Get-FolderSize`
+  + Added `-ComputerName` parameter to get folder sizes from remote machines.
+  + The folder path provided needs to be the local path on the remote machine.
++ `SU`
+  + Added additional parent process detection.
+    + Instead of only launching `powershell.exe` or `pwsh.exe`, this can re-launch WindowsTermainl, VSCode, PowerShell ISE depending on where the command originated from.
+
 ## v1.0.9
 + Syntax changes in function definitions
   + This does not contain any features or major code changes.
