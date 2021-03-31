@@ -1,6 +1,12 @@
 #Region SU
+$DetectedOS = switch($true) {
+    $IsWindows {'Windows'}
+    $IsLinux   {'Linux'}
+    $IsMacOS   {'MacOS'}
+    DEFAULT    {'Windows'}
+}
 
-If ($IsLinux -eq $false -or $null -eq $IsLinux) {
+If ($DetectedOS -eq 'Windows') {
     <#
     .SYNOPSIS
         Windows version of the linux command `SU`
