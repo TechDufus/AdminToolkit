@@ -1,11 +1,13 @@
 [CmdletBinding()]
 [OutputType([boolean])]
-Param()
+Param(
+    [Parameter(Mandatory)]
+    [System.String] $PSGalleryApiKey
+)
 
 Begin {
     Import-Module $(Join-Path $PSScriptRoot 'BuildHelpers.psm1') -Force
 }
-
 Process {
-    Build-Module
+    Publish-ThisModule -PSGalleryApiKey $PSGalleryApiKey
 }

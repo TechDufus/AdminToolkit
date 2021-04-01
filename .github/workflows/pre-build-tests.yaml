@@ -1,0 +1,32 @@
+name: "Pre-Build Tests"
+on:
+  pull_request:
+
+
+jobs:
+  linux_tests:
+    name: Test source code module on Linux
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+      - run: ./Build/pre-build-tests.ps1
+        shell: pwsh
+
+  windows_tests:
+    name: Test source code module on Windows
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+      - run: ./Build/pre-build-tests.ps1
+        shell: pwsh
+
+  macos_tests:
+    name: Test source code module on MacOS
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+      - run: ./Build/pre-build-tests.ps1
+        shell: pwsh

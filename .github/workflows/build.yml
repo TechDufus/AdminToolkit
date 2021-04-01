@@ -1,0 +1,41 @@
+name: "Build"
+on:
+  workflow_run:
+    workflows: ["Pre-Build Tests"]
+    types:
+      - completed
+
+jobs:
+  linux_build:
+    name: Build module on Linux
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+      - run: ./Build/build.ps1
+        shell: pwsh
+      - run: ./Build/post-build-tests.ps1
+        shell: pwsh
+
+  windows_build:
+    name: Build module on Windows
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+      - run: ./Build/build.ps1
+        shell: pwsh
+      - run: ./Build/post-build-tests.ps1
+        shell: pwsh
+
+  macos_build:
+    name: Build module on MacOS
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+      - run: ./Build/build.ps1
+        shell: pwsh
+      - run: ./Build/post-build-tests.ps1
+        shell: pwsh
+
