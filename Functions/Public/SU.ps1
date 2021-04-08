@@ -7,6 +7,7 @@ $DetectedOS = switch($true) {
 }
 
 If ($DetectedOS -eq 'Windows') {
+    
     <#
     .SYNOPSIS
         Windows version of the linux command `SU`
