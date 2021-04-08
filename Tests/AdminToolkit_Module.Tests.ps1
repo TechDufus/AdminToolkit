@@ -7,11 +7,31 @@ Describe "AdminToolkit Module Public Tests" {
     }
     Context 'Public Functions' {
         It 'should import successfully' {
+            
             $PublicImportedCommands = (Get-Command -Module AdminToolkit).Name
             $PublicFiles = Get-ChildItem ([System.IO.Path]::Combine($PSScriptRoot, '..', 'Functions', 'Public', '*.ps1')) -Exclude *tests.ps1, Aliases.ps1 | ForEach-Object {
                 $_
             }
             $PublicImportFailedFunctions = (Compare-Object $PublicImportedCommands $($PublicFiles).BaseName).InputObject
+
+            $DetectedOS = switch($true) {
+                $IsWindows {'Windows'}
+                $IsLinux   {'Linux'}
+                $IsMacOS   {'MacOS'}
+                DEFAULT    {'Windows'}
+            }
+
+            Switch($DetectedOS) {
+                'Windows' {
+                    
+                }
+
+                DEFAULT {
+                    $NonWindowsFunctions = 'SU', 'grep'
+                    $PublicImportFailedFunctions = $PublicImportFailedFunctions | Where-Object {$_ -NotIn $NonWindowsFunctions}
+                }
+            }
+
             $PublicImportFailedFunctions | Should -BeNullOrEmpty
         }
 
