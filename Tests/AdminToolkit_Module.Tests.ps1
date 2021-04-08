@@ -5,7 +5,28 @@ Describe "AdminToolkit Module Public Tests" {
     It "Imports Successfully" {
         Get-Module AdminToolkit | Should -Not -BeNullOrEmpty
     }
-    Context 'Public Functions' {
+
+    $DetectedOS = switch($true) {
+        $IsWindows {'Windows'}
+        $IsLinux   {'Linux'}
+        $IsMacOS   {'MacOS'}
+        DEFAULT    {'Windows'}
+    }
+
+    Switch($DetectedOS) {
+        'Windows' {
+            $ExcludedFunctions = [System.String]::Empty
+        }
+
+        DEFAULT {
+            $ExcludedFunctions = 'SU', 'grep'
+        }
+    }
+
+    Context 'Public Functions' {                
+        $PSDefaultParameterValues = @{
+            "It:TestCases" = @{ ExcludedFunctions = $ExcludedFunctions }
+        }
         It 'should import successfully' {
             
             $PublicImportedCommands = (Get-Command -Module AdminToolkit).Name
@@ -14,34 +35,21 @@ Describe "AdminToolkit Module Public Tests" {
             }
             $PublicImportFailedFunctions = (Compare-Object $PublicImportedCommands $($PublicFiles).BaseName).InputObject
 
-            $DetectedOS = switch($true) {
-                $IsWindows {'Windows'}
-                $IsLinux   {'Linux'}
-                $IsMacOS   {'MacOS'}
-                DEFAULT    {'Windows'}
-            }
 
-            Switch($DetectedOS) {
-                'Windows' {
-                    
-                }
-
-                DEFAULT {
-                    $NonWindowsFunctions = 'SU', 'grep'
-                    $PublicImportFailedFunctions = $PublicImportFailedFunctions | Where-Object {$_ -NotIn $NonWindowsFunctions}
-                }
-            }
-
+            $PublicImportFailedFunctions = $PublicImportFailedFunctions | Where-Object {$_ -NotIn $ExcludedFunctions}
             $PublicImportFailedFunctions | Should -BeNullOrEmpty
         }
 
         Get-ChildItem ([System.IO.Path]::Combine($PSScriptRoot, '..', 'Functions', 'Public', '*.ps1')) -Exclude *tests.ps1, Aliases.ps1 | ForEach-Object {
             Context "Test Function: $($_.BaseName)" {
                 $PSDefaultParameterValues = @{
-                    "It:TestCases" = @{ CurrentFunction = $_ }
+                    "It:TestCases" = @{
+                        CurrentFunction = $_
+                        ExcludedFunctions = $ExcludedFunctions
+                    }
                 }
                 It "Should register command with Get-Command" {
-                    (Get-Command $CurrentFunction.BaseName) | Should -BeOfType [System.Management.Automation.CommandInfo]
+                    (Get-Command $CurrentFunction.BaseName) | Where-Object {$_ -NotIn $ExcludedFunctions} | Should -BeOfType [System.Management.Automation.CommandInfo]
                 }
                 It "Should have comment-based help block" {
                     $CurrentFunction.FullName | Should -FileContentMatch '<#'
