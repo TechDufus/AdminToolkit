@@ -17,7 +17,6 @@ Describe "AdminToolkit Module Public Tests" {
         'Windows' {
             $script:ExcludedFunctions = [System.String]::Empty
         }
-
         DEFAULT {
             $script:ExcludedFunctions = 'SU', 'grep'
         }
