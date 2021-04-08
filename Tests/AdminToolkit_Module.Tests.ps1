@@ -15,17 +15,17 @@ Describe "AdminToolkit Module Public Tests" {
 
     Switch($DetectedOS) {
         'Windows' {
-            $ExcludedFunctions = [System.String]::Empty
+            $script:ExcludedFunctions = [System.String]::Empty
         }
 
         DEFAULT {
-            $ExcludedFunctions = 'SU', 'grep'
+            $script:ExcludedFunctions = 'SU', 'grep'
         }
     }
 
     Context 'Public Functions' {                
         $PSDefaultParameterValues = @{
-            "It:TestCases" = @{ ExcludedFunctions = $ExcludedFunctions }
+            "It:TestCases" = @{ ExcludedFunctions = $script:ExcludedFunctions }
         }
         It 'should import successfully' {
             
@@ -36,20 +36,20 @@ Describe "AdminToolkit Module Public Tests" {
             $PublicImportFailedFunctions = (Compare-Object $PublicImportedCommands $($PublicFiles).BaseName).InputObject
 
 
-            $PublicImportFailedFunctions = $PublicImportFailedFunctions | Where-Object {$_ -NotIn $ExcludedFunctions}
+            $PublicImportFailedFunctions = $PublicImportFailedFunctions | Where-Object {$_ -NotIn $script:ExcludedFunctions}
             $PublicImportFailedFunctions | Should -BeNullOrEmpty
         }
 
-        Get-ChildItem ([System.IO.Path]::Combine($PSScriptRoot, '..', 'Functions', 'Public', '*.ps1')) -Exclude *tests.ps1, Aliases.ps1 | ForEach-Object {
+        Get-ChildItem ([System.IO.Path]::Combine($PSScriptRoot, '..', 'Functions', 'Public', '*.ps1')) -Exclude *tests.ps1, Aliases.ps1 |
+            Where-Object {$_.BaseName -NotIn $script:ExcludedFunctions} | ForEach-Object {
             Context "Test Function: $($_.BaseName)" {
                 $PSDefaultParameterValues = @{
                     "It:TestCases" = @{
                         CurrentFunction = $_
-                        ExcludedFunctions = $ExcludedFunctions
                     }
                 }
                 It "Should register command with Get-Command" {
-                    (Get-Command $CurrentFunction.BaseName) | Where-Object {$_ -NotIn $ExcludedFunctions} | Should -BeOfType [System.Management.Automation.CommandInfo]
+                    (Get-Command $CurrentFunction.BaseName) | Should -BeOfType [System.Management.Automation.CommandInfo]
                 }
                 It "Should have comment-based help block" {
                     $CurrentFunction.FullName | Should -FileContentMatch '<#'
