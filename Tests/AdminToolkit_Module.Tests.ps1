@@ -5,20 +5,47 @@ Describe "AdminToolkit Module Public Tests" {
     It "Imports Successfully" {
         Get-Module AdminToolkit | Should -Not -BeNullOrEmpty
     }
-    Context 'Public Functions' {
+
+    $DetectedOS = switch($true) {
+        $IsWindows {'Windows'}
+        $IsLinux   {'Linux'}
+        $IsMacOS   {'MacOS'}
+        DEFAULT    {'Windows'}
+    }
+
+    Switch($DetectedOS) {
+        'Windows' {
+            $script:ExcludedFunctions = [System.String]::Empty
+        }
+        DEFAULT {
+            $script:ExcludedFunctions = 'SU', 'grep'
+        }
+    }
+
+    Context 'Public Functions' {                
+        $PSDefaultParameterValues = @{
+            "It:TestCases" = @{ ExcludedFunctions = $script:ExcludedFunctions }
+        }
         It 'should import successfully' {
+            
             $PublicImportedCommands = (Get-Command -Module AdminToolkit).Name
             $PublicFiles = Get-ChildItem ([System.IO.Path]::Combine($PSScriptRoot, '..', 'Functions', 'Public', '*.ps1')) -Exclude *tests.ps1, Aliases.ps1 | ForEach-Object {
                 $_
             }
             $PublicImportFailedFunctions = (Compare-Object $PublicImportedCommands $($PublicFiles).BaseName).InputObject
+
+
+            $PublicImportFailedFunctions = $PublicImportFailedFunctions | Where-Object {$_ -NotIn $script:ExcludedFunctions}
             $PublicImportFailedFunctions | Should -BeNullOrEmpty
         }
 
-        Get-ChildItem ([System.IO.Path]::Combine($PSScriptRoot, '..', 'Functions', 'Public', '*.ps1')) -Exclude *tests.ps1, Aliases.ps1 | ForEach-Object {
+        Get-ChildItem ([System.IO.Path]::Combine($PSScriptRoot, '..', 'Functions', 'Public', '*.ps1')) -Exclude *tests.ps1, Aliases.ps1 |
+            Where-Object {$_.BaseName -NotIn $script:ExcludedFunctions} | ForEach-Object {
             Context "Test Function: $($_.BaseName)" {
                 $PSDefaultParameterValues = @{
-                    "It:TestCases" = @{ CurrentFunction = $_ }
+                    "It:TestCases" = @{
+                        CurrentFunction = $_
+                    }
                 }
                 It "Should register command with Get-Command" {
                     (Get-Command $CurrentFunction.BaseName) | Should -BeOfType [System.Management.Automation.CommandInfo]

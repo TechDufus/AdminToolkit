@@ -1,9 +1,8 @@
 name: "Build and Test"
 on:
-  workflow_run:
-    workflows: ["Pre-Build Tests"]
-    types:
-      - completed
+  pull_request:
+    branches-ignore:
+      - master
 
 jobs:
   linux_build:
@@ -12,6 +11,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@master
+      - run: ./Build/pre-build-tests.ps1
+        name: "Pre_Test_On_Linux"
+        shell: pwsh
       - run: ./Build/build.ps1
         name: "Build_On_Linux"
         shell: pwsh
@@ -25,6 +27,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@master
+      - run: ./Build/pre-build-tests.ps1
+        name: "Pre_Test_On_Windows"
+        shell: pwsh
       - run: ./Build/build.ps1
         name: "Build_On_Windows"
         shell: pwsh
@@ -38,6 +43,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@master
+      - run: ./Build/pre-build-tests.ps1
+        name: "Pre_Test_On_MacOS"
+        shell: pwsh
       - run: ./Build/build.ps1
         name: "Build_On_MacOS"
         shell: pwsh
