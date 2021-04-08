@@ -11,6 +11,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@master
       - run: ./Build/pre-build-tests.ps1
+        name: "Pre_Test_On_Linux"
         shell: pwsh
 
   windows_tests:
@@ -20,6 +21,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@master
       - run: ./Build/pre-build-tests.ps1
+        name: "Pre_Test_On_Windows"
         shell: pwsh
 
   macos_tests:
@@ -29,4 +31,5 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@master
       - run: ./Build/pre-build-tests.ps1
+        name: "Pre_Test_On_MacOS"
         shell: pwsh

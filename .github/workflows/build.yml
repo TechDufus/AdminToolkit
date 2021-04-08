@@ -13,8 +13,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@master
       - run: ./Build/build.ps1
+        name: "Build_On_Linux"
         shell: pwsh
       - run: ./Build/post-build-tests.ps1
+        name: 'Post_Test_On_Linux'
         shell: pwsh
 
   windows_build:
@@ -24,8 +26,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@master
       - run: ./Build/build.ps1
+        name: "Build_On_Windows"
         shell: pwsh
       - run: ./Build/post-build-tests.ps1
+        name: 'Post_Test_On_Windows'
         shell: pwsh
 
   macos_build:
@@ -35,7 +39,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@master
       - run: ./Build/build.ps1
+        name: "Build_On_MacOS"
         shell: pwsh
       - run: ./Build/post-build-tests.ps1
+        name: 'Post_Test_On_MacOS'
         shell: pwsh
 
