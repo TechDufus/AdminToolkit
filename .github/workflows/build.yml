@@ -1,4 +1,4 @@
-name: "Build"
+name: "Build and Test"
 on:
   workflow_run:
     workflows: ["Pre-Build Tests"]
