@@ -7,14 +7,14 @@ Describe "AdminToolkit Module" {
         Get-Module AdminToolkit | Should -Not -BeNullOrEmpty
     }
     Context 'Functions' {
-        It 'All: should import successfully' {
-            $PublicImportedCommands = (Get-Command -Module AdminToolkit).Name
-            $FunctionRegex = '^Function .+?.(?=\()'
-            $AllFunctions = ((Get-Content (Join-Path $script:ThisRoot 'AdminToolkit.psm1') | Select-String -Pattern $FunctionRegex).Matches.value | Foreach-Object {@($_ -Split ' ')[1]}) | Sort-Object
-            $PrivateFunctions = (Compare-Object $PublicImportedCommands $AllFunctions).InputObject
+        # It 'All: should import successfully' {
+        #     $PublicImportedCommands = (Get-Command -Module AdminToolkit).Name
+        #     $FunctionRegex = '^Function .+?.(?=\()'
+        #     $AllFunctions = ((Get-Content (Join-Path $script:ThisRoot 'AdminToolkit.psm1') | Select-String -Pattern $FunctionRegex).Matches.value | Foreach-Object {@($_ -Split ' ')[1]}) | Sort-Object
+        #     $PrivateFunctions = (Compare-Object $PublicImportedCommands $AllFunctions).InputObject
 
-            ($PublicImportedCommands + $PrivateFunctions | Sort-Object) | Should -Be $AllFunctions
-        }
+        #     ($PublicImportedCommands + $PrivateFunctions | Sort-Object) | Should -Be $AllFunctions
+        # }
 
         It "Should be valid PowerShell code" {
             $FileContent = Get-Content (Join-Path $script:ThisRoot 'AdminToolkit.psm1') -ErrorAction Stop

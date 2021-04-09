@@ -1,6 +1,8 @@
 name: "Pre-Build Tests"
 on:
   push:
+    branches-ignore:
+      - master
     
 
 
