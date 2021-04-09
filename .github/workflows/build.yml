@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@master
-      - run: ./Build/pre-build-tests.ps1
+      - run: ./Build/source-code-tests.ps1
         name: "Pre_Test_On_Linux"
         shell: pwsh
       - run: ./Build/build.ps1
@@ -25,7 +25,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@master
-      - run: ./Build/pre-build-tests.ps1
+      - run: ./Build/source-code-tests.ps1
         name: "Pre_Test_On_Windows"
         shell: pwsh
       - run: ./Build/build.ps1
@@ -41,7 +41,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@master
-      - run: ./Build/pre-build-tests.ps1
+      - run: ./Build/source-code-tests.ps1
         name: "Pre_Test_On_MacOS"
         shell: pwsh
       - run: ./Build/build.ps1
