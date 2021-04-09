@@ -29,7 +29,7 @@ Process {
                 Write-Status Success "Passed all POST-Build Tests."
                 If (-Not($DoNotPublish.IsPresent)) {
                     Write-Status Info "Publishing Module..."
-                    Publish-ThisModule
+                    Publish-ThisModule -PSGalleryApiKey $PSGalleryApiKey
                     Write-Status Success "Successfully published."
                 }
             } Else {
