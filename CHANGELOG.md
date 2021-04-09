@@ -1,6 +1,6 @@
 # Changelog for AdminToolkit
 
-## v1.1
+## v1.1.0
 + `Get-FolderSize`
   + Added `-ComputerName` parameter to get folder sizes from remote machines.
   + The folder path provided needs to be the local path on the remote machine.
