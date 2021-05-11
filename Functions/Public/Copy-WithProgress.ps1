@@ -72,7 +72,7 @@ Function Copy-WithProgress() {
         }
         $FileSize = ($File | Measure-Object -Property Length -Sum -ErrorAction SilentlyContinue).Sum
         $Filename = $File.Fullname.ToLower().Replace($Source, '').Replace('Microsoft.PowerShell.Core\FileSystem::', '')
-        $DestinationFile = [System.IO.Path]::Combine($Destination, $Filename)
+        $DestinationFile = Join-Path $Destination $FileName
         $Position++
         $Percent = [int]$(($Position / $Total) * 100)
         Write-Progress -Activity "Copying data from '$Source' to '$Destination'" -Status "Copying File $Position of $total -  $TotalSize remaining..." -PercentComplete (($Position / $total) * 100) -CurrentOperation "$Percent% complete"
