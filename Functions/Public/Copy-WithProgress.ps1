@@ -55,8 +55,8 @@ Function Copy-WithProgress() {
         [Switch] $IncludeACL
     )
 
-    Write-Progress -Activity "Gathering data from $Source"
-    $Source = (Resolve-Path -Path $Source).Path.Replace('Microsoft.PowerShell.Core\FileSystem::', '').ToLower()
+    Write-Progress -Activity "Gathering data from $Path"
+    $Source = (Resolve-Path -Path $Path).Path.Replace('Microsoft.PowerShell.Core\FileSystem::', '').ToLower()
     $Destination = $Destination.Replace('Microsoft.PowerShell.Core\FileSystem::', '').ToLower()
     $Filelist = Get-Childitem $Source -Recurse
     $Total = $Filelist.count
