@@ -5,7 +5,7 @@
     This function performs a copy of a specified object recursively to a specified location.
 .DESCRIPTION
     This function is a glorified Copy-Item in that it will show progress data. If moving 10,000 files that equal 2GB in size, it will show you what file you are currently on as well as how much data has been moved / what is left using Write-Progress.
-.PARAMETER Source
+.PARAMETER Path
     Source should specify the object to be copied by name. This value must be the FullPath and cannot be shortened. An example would be if you were in the C:\Scripts directory, you could not specify '.\TestFile.ps1' as the source location, you must specify 'C:\Scripts\TestFile.ps1' in this case.
 .PARAMETER Destination
     Destination should specify the target location of the specified Source by name. This value must be the FullPath and cannot be shortened. An example would be if you were in the C:\Scripts directory, you could not specify '.\TestFile.ps1' as the Destination location, you must specify 'C:\Scripts\TestFile.ps1' in this case
