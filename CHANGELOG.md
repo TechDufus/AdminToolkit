@@ -1,12 +1,17 @@
 # Changelog for AdminToolkit
 
+## v1.1.1
++ `Copy-WithProgress`
+  + Changing the `-Source` parameter to `-Path` and adding an alias for `-Source`
+    + This is to keep these parameters more aligned with `Copy-Item`.
+
 ## v1.1.0
 + `Get-FolderSize`
   + Added `-ComputerName` parameter to get folder sizes from remote machines.
   + The folder path provided needs to be the local path on the remote machine.
 + `SU`
   + Added additional parent process detection.
-    + Instead of only launching `powershell.exe` or `pwsh.exe`, this can re-launch WindowsTermainl, VSCode, PowerShell ISE depending on where the command originated from.
+    + Instead of only launching `powershell.exe` or `pwsh.exe`, this can re-launch WindowsTermainal, VSCode, PowerShell ISE depending on where the command originated from.
 + Tests
   + Added additional logic to account for OS-Specific functions to be tested.
     + Examples:
