@@ -43,7 +43,8 @@ Function Copy-WithProgress() {
         [Parameter(Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
             Position = 0)]
-        $Source,
+        [Alias('Source')]
+        $Path,
 
         [Parameter(Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
