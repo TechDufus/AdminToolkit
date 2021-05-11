@@ -1,5 +1,9 @@
 # Changelog for AdminToolkit
 
+
+## v1.1.1.1
+**BUG FIX:**
+  + Correcting variable references that were changed in v1.1.1
 ## v1.1.1
 + `Copy-WithProgress`
   + Changing the `-Source` parameter to `-Path` and adding an alias for `-Source`
