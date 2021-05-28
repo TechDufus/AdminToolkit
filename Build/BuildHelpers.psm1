@@ -69,7 +69,11 @@ Function Confirm-VCSModuleNewerThanPublished() {
 
     Process {
         $script:VCSModuleVersion = (Test-ModuleManifest -Path (Join-Path $script:MyRoot "$script:ModuleName.psd1")).Version
-        $PublishedModuleVersion = (Find-Module -Repository 'PSGallery' -Name $script:ModuleName).Version
+        Try {
+            $PublishedModuleVersion = (Find-Module -Repository 'PSGallery' -Name $script:ModuleName).Version
+        } Catch {
+            $PublishedModuleVersion = "0.0.0"
+        }
 
         Write-Status Info "Published Version: $PublishedModuleVersion"
         Write-Status Info "VCS Version: $script:VCSModuleVersion"
@@ -98,7 +102,28 @@ Function Start-PreBuildTests() {
         }
         $TestsPath = [System.IO.Path]::Combine($script:MyRoot,'Tests')
 
-        $Result = Invoke-Pester $TestsPath -PassThru -OutputFile 'Pre-Build_testResults.xml' -OutputFormat NUnitXml
+        $PesterConfiguration = [PesterConfiguration]@{
+            Run = @{
+                Path = $TestsPath
+                PassThru = $true
+            }
+            Output = @{
+                Verbosity = 'Detailed'
+            }
+            Should = @{
+                ErrorAction = 'Continue'
+            }
+            CodeCoverage = @{
+                Enable = $true
+                OutputPath = 'Pre-Build_CodeCoverage.xml'
+            }
+            TestResult = @{
+                Enabled = $true
+                OutputPath = 'Pre-Build_testResults.xml'
+            }
+        }
+
+        $Result = Invoke-Pester -Configuration $PesterConfiguration
 
         Switch($Result.Result) {
             'Passed' {
@@ -131,9 +156,11 @@ Function Build-Module() {
         Write-Status Info "Functions to build module:"
         $ScriptFunctions
 
+        $AllModuleFiles = $ScriptFunctions | Get-ChildItem
+
         $null = New-Item -Name "$script:ModuleName" -Path $ModuleBuildPath -ItemType Directory -Force
 
-        foreach ($FilePath in $ScriptFunctions) {
+        foreach ($FilePath in $AllModuleFiles) {
             $Results = [System.Management.Automation.Language.Parser]::ParseFile($FilePath, [ref]$null, [ref]$null)
             $Functions = $Results.Extent.Text
             Write-Status Info "Adding content from $($FilePath.Name) to module $ModuleTargetFile"
@@ -166,7 +193,29 @@ Function Start-PostBuildTests() {
         Copy-Item @copyItemSplat
 
         Write-Status Info "Starting POST-Build Tests.."
-        $Result = Invoke-Pester (Join-Path $BuildModuleRoot 'build_tests') -PassThru -OutputFile 'Post-Build_testResults.xml' -OutputFormat NUnitXml
+
+        $PesterConfiguration = [PesterConfiguration]@{
+            Run = @{
+                Path = (Join-Path $BuildModuleRoot 'build_tests')
+                PassThru = $true
+            }
+            Output = @{
+                Verbosity = 'Detailed'
+            }
+            Should = @{
+                ErrorAction = 'Continue'
+            }
+            CodeCoverage = @{
+                Enable = $true
+                OutputPath = 'Post-Build_CodeCoverage.xml'
+            }
+            TestResult = @{
+                Enabled = $true
+                OutputPath = 'Post-Build_testResults.xml'
+            }
+        }
+
+        $Result = Invoke-Pester -Configuration $PesterConfiguration
 
         $removeItemSplat = @{
             Force = $true
@@ -252,7 +301,7 @@ Function Get-LatestChangeLogSection() {
         $VersionHeading = '## v'
         $LatestChangeLogVersion = (($FileContent | Select-String -Pattern $VersionHeading)[0] -Split 'v')[-1]
 
-        #Only grab the latest changelog section if it's actually relevant to the version being published.
+        #Only grab the latest changelog section if its actually relevant to the version being published.
         If ($LatestChangeLogVersion -eq $Version) {
             $TerminateFileContentLine = (($FileContent | Select-String -Pattern $VersionHeading)[1].LineNumber) - 2
             $FileContent[0..$TerminateFileContentLine] | Out-String
@@ -280,8 +329,7 @@ Function Remove-TestResultFiles() {
     Param()
 
     Process {
-        $RepositoryRoot = Split-Path (Split-Path $script:MyRoot -Parent) -Parent
-        $TestXMLFiles = Get-ChildItem (Join-Path $RepositoryRoot '*-Build_testResults.xml')
+        $TestXMLFiles = Get-ChildItem (Join-Path $script:MyRoot '*-Build_*.xml')
         If ($TestXMLFiles) {
             $TestXMLFiles | Remove-Item -Force
         }

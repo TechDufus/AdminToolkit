@@ -1,10 +1,16 @@
 # Changelog for AdminToolkit
 
+## v1.1.1.3
++ `Get-PublicIP`
+  + The output of this function is now a PSCustomObject instead of an enumerated hashtable.
++ Tests
+  + Upgrading all tests to Pester v5 syntax.
 
 ## v1.1.1.2
 **BUG FIX:**
   + Correcting variable references that were changed in v1.1.1
   + Using `Join-Path` instead of `[System.IO.Path]::Combine()`, this was buggy.
+
 ## v1.1.1
 + `Copy-WithProgress`
   + Changing the `-Source` parameter to `-Path` and adding an alias for `-Source`
