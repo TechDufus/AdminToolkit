@@ -8,7 +8,23 @@ BeforeDiscovery {
     Remove-Module AdminToolkit -Force -ErrorAction SilentlyContinue
     Import-Module $ModuleRoot -Force
     $PublicFunctionsPath = Join-Path $ModuleRoot 'Functions' 'Public' '*.ps1'
-    $PublicFunctions = Get-ChildItem $PublicFunctionsPath -Exclude Aliases.ps1
+
+    $DetectedOS = switch($true) {
+        $IsWindows {'Windows'}
+        $IsLinux   {'Linux'}
+        $IsMacOS   {'MacOS'}
+        DEFAULT    {'Windows'}
+    }
+
+    Switch($DetectedOS) {
+        'Windows' {
+            $script:ExcludedFunctions = [System.String]::Empty
+        }
+        DEFAULT {
+            $script:ExcludedFunctions = 'SU', 'grep'
+        }
+    }
+    $PublicFunctions = Get-ChildItem $PublicFunctionsPath -Exclude Aliases.ps1 | Where-Object {$_.BaseName -notin $script:ExcludedFunctions}
 }
 
 Describe "Function: <_.BaseName>" -ForEach $PublicFunctions {
