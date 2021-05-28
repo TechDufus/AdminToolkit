@@ -1,10 +1,10 @@
-#Requires -Modules @{ModuleName="Pester";ModuleVersion="5.0.0"}
+#Requires -Modules @{ModuleName="Pester";ModuleVersion="5.2.0"}
 
 Describe "AdminToolkit Manifest Tests" {
-    $ManifestInfo = Test-ModuleManifest -Path ([System.IO.Path]::Combine($PSScriptRoot,'..','AdminToolkit.psd1'))
-    $PSDefaultParameterValues = @{
-        "It:TestCases" = @{ ManifestInfo = $ManifestInfo }
+    BeforeAll {
+        $ManifestInfo = Test-ModuleManifest -Path ([System.IO.Path]::Combine($PSScriptRoot,'..','AdminToolkit.psd1'))
     }
+
     It 'Passes Test-ModuleManifest' {
         $ManifestInfo | Should -Be $true
     }

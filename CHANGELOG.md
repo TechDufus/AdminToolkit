@@ -3,6 +3,8 @@
 ## v1.1.1.3
 + `Get-PublicIP`
   + The output of this function is now a PSCustomObject instead of an enumerated hashtable.
++ Tests
+  + Upgrading all tests to Pester v5 syntax.
 
 ## v1.1.1.2
 **BUG FIX:**

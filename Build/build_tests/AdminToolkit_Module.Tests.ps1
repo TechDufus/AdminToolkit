@@ -1,10 +1,17 @@
-#Requires -Modules @{ModuleName="Pester";ModuleVersion="5.0.0"}
-$script:ThisRoot = Split-Path $PSScriptRoot -Parent
-Remove-Module AdminToolkit -ErrorAction SilentlyContinue
-Import-Module ([System.IO.Path]::Combine($script:ThisRoot, 'AdminToolkit.psd1')) -Force
+BeforeDiscovery {
+    $ThisRoot = Split-Path $PSScriptRoot -Parent
+    #Requires -Modules @{ModuleName="Pester";ModuleVersion="5.1.0"}
+    Remove-Module AdminToolkit -ErrorAction SilentlyContinue
+    Import-Module (Join-Path $ThisRoot 'AdminToolkit.psd1') -Force
+}
 Describe "AdminToolkit Module" {
-    It "Imports Successfully" {
-        Get-Module AdminToolkit | Should -Not -BeNullOrEmpty
+    BeforeAll {
+        $ThisRoot = Split-Path $PSScriptRoot -Parent
+    }
+    Context 'Module' {
+        It "Imports Successfully" {
+            Get-Module AdminToolkit | Should -Not -BeNullOrEmpty
+        }
     }
     Context 'Functions' {
         # It 'All: should import successfully' {
@@ -17,7 +24,7 @@ Describe "AdminToolkit Module" {
         # }
 
         It "Should be valid PowerShell code" {
-            $FileContent = Get-Content (Join-Path $script:ThisRoot 'AdminToolkit.psm1') -ErrorAction Stop
+            $FileContent = Get-Content (Join-Path $ThisRoot 'AdminToolkit.psm1')
             $Errors = $null
             $null = [System.Management.Automation.PSParser]::Tokenize($FileContent, [ref]$errors)
             $errors.Count | Should -be 0
