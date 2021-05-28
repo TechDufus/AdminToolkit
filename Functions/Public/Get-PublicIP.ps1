@@ -49,7 +49,7 @@ Function Get-PublicIP() {
         else {
             $ipinfo = Invoke-RestMethod http://ipinfo.io/json
         }
-        $PublicIP = @{
+        [PSCustomObject]@{
             IP           = $ipinfo.ip
             City         = $ipinfo.city
             Region       = $ipinfo.region
@@ -59,7 +59,6 @@ Function Get-PublicIP() {
             Postal       = $ipinfo.Postal
             TimeZone     = $ipinfo.timezone
         }
-        $PublicIP.getenumerator() | Sort-Object Key
     }
     catch {
         Write-Error "$($_.Exception.Message)"
