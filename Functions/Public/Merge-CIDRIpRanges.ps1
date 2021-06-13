@@ -74,7 +74,7 @@ Function Merge-CIDRIpRanges() {
                     EndAddress   = $IPInfo.BroadcastAddress
                 }
 
-                If (IsIpAddressInRange @RangeCompareRootToNested) {
+                If (Test-IsIpAddressInRange @RangeCompareRootToNested) {
                     Write-Verbose "$($CompareIP) is inside range $($RootIP)"
                     $null = $Survivor.Add($RootIP)
                     $null = $Reject.Add($CompareIP)
@@ -87,7 +87,7 @@ Function Merge-CIDRIpRanges() {
                     EndAddress   = $CompareIPInfo.BroadcastAddress
                 }
 
-                If (IsIpAddressInRange @RangeCompareNestedToRoot) {
+                If (Test-IsIpAddressInRange @RangeCompareNestedToRoot) {
                     Write-Verbose "$($RootIP) is inside range $($CompareIP)"
                     $null = $Survivor.Add($CompareIP)
                     $null = $Reject.Add($RootIP)
