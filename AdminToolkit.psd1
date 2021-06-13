@@ -12,7 +12,7 @@
 RootModule = 'AdminToolkit.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.1.1.3'
+ModuleVersion = '1.1.2'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Desktop', 'Core'
@@ -46,7 +46,7 @@ FunctionsToExport = 'Get-Printers', 'Get-Management', 'Remove-Application', 'Rem
                 'Update-PowerShell', 'Get-CIDRNotationBySubnetMask', 
                 'Push-LocalScheduledTask', 'Get-WindowsBuild', 'Watch-Command', 
                 'DateStamp', 'TimeStamp', 'LL', 'Get-ContentWithLineNumbers', 'LLM', 
-                'Get-PCUpTime', 'Clear-CCMCache', 'Get-RebootLogs'
+                'Get-PCUpTime', 'Clear-CCMCache', 'Get-RebootLogs', 'Get-IPv4NetworkInfo', 'Merge-CIDRIpRanges'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()
