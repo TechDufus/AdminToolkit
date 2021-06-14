@@ -1,10 +1,15 @@
 # Changelog for AdminToolkit
 
+## v1.1.2.1
+
++ `Merge-CIDRIpRanges`
+  + Significant performance improvement to `Merge-CIDRIpRanges` function.
+
 ## v1.1.2
 
 + **New Functions:**
   + **Public**
-    + `Merge-CIDRIpAddressRanges`
+    + `Merge-CIDRIpRanges`
       + Reduces a list of CIDR IP Ranges to a single list of ranges that do not overlap.
     + `Get-IPv4NetworkInfo`
       + Gets extended information about an IPv4 network.
