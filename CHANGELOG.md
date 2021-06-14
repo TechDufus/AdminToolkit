@@ -1,5 +1,11 @@
 # Changelog for AdminToolkit
 
+## v1.1.2.2
+
++ `Merge-CIDRIpRanges`
+  + Refactor of function provided by [SeidChr](https://github.com/SeidChr).
+  + This includes significant performance improvements.
+
 ## v1.1.2.1
 
 + `Merge-CIDRIpRanges`
