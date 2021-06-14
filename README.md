@@ -21,7 +21,7 @@ Update-Module AdminToolkit
 ```
 
 ## Installing with Git
-### For Windows PowerShell 5.1 ###
+### For Windows PowerShell 5.1
 ```powershell
 # For CurrentUser scope
 git clone https://github.com/matthewjdegarmo/AdminToolkit.git ($env:PSModulePath -split ';')[0]
@@ -29,7 +29,7 @@ git clone https://github.com/matthewjdegarmo/AdminToolkit.git ($env:PSModulePath
 # For AllUsers scope. Must be Admin.
 git clone https://github.com/matthewjdegarmo/AdminToolkit.git ($env:PSModulePath -split ';')[2]
 ```
-### For PowerShell 6.0+ ###
+### For PowerShell 6.0+
 ```powershell
 # For CurrentUser scope
 git clone https://github.com/matthewjdegarmo/AdminToolkit.git $PSGetPath.CurrentUserModules
@@ -42,7 +42,7 @@ PowerShell will now Auto-Load the commands in this module.
 
 ## Updating with Git
 Navigate into the cloned AdminToolkit folder and run `git pull` to pull the current main (master) branch.
-### For Windows PowerShell 5.1 ###
+### For Windows PowerShell 5.1
 ```powershell
 # For CurrentUser scope
 Set-Location (Join-Path -Path ($env:PSModulePath -split ';')[0] -ChildPath AdminToolkit)
@@ -52,7 +52,7 @@ git pull
 Set-Location (Join-Path -Path ($env:PSModulePath -split ';')[2] -ChildPath AdminToolkit)
 git pull
 ```
-### For PowerShell 6.0+ ###
+### For PowerShell 6.0+
 ```powershell
 # For CurrentUser scope
 Set-Location (Join-Path -Path $PSGetPath.CurrentUserModules -ChildPath AdminToolkit)
