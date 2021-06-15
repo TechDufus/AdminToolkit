@@ -40,7 +40,7 @@ Function Merge-CIDRIpRanges() {
     Begin {}
 
     Process {
-        $sortedRanges = $CIDRAddresses | % {
+        $sortedRanges = $CIDRAddresses | Foreach-Object {
             $range = $_
             $mask, [int]$bits = $range.Split('/')
             $bitMask = $mask -split '\.' | ForEach-Object -Begin { 
