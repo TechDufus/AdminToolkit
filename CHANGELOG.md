@@ -1,5 +1,10 @@
 # Changelog for AdminToolkit
 
+## v1.1.2.3
+
++ `Get-RebootLogs`
+  + Significant performance improvement when querying event logs for this cmdlet
+
 ## v1.1.2.2
 
 + `Merge-CIDRIpRanges`
