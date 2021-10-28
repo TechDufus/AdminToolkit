@@ -7,6 +7,8 @@
     This will pull system event logs for the local or remote computer.
 .PARAMETER ComputerName
     Specify a remote computer to pull logs from.
+.PARAMETER MaxEvents
+    Specify the maximum number of events to pull.
 .EXAMPLE
     PS> Get-RebootLogs
 
