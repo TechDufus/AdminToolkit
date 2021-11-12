@@ -35,8 +35,34 @@ Function Update-PowerShell() {
         [switch] $Preview,
         [switch] $Quiet
     )
-    if ($PSBoundParameters.ContainsKey('Preview')) { $PreviewOption = '-Preview' }
-    if ($PSBoundParameters.ContainsKey('Quiet')) { $QuietOption = '-Quiet' }
-    Invoke-Expression -Command "& {$(Invoke-RestMethod https://aka.ms/install-powershell.ps1)} -UseMSI $PreviewOption $QuietOption"
+
+    Begin {
+        $wid = [System.Security.Principal.WindowsIdentity]::GetCurrent()
+        $prp = new-object System.Security.Principal.WindowsPrincipal($wid)
+        $adm = [System.Security.Principal.WindowsBuiltInRole]::Administrator
+        $IsAdmin = $prp.IsInRole($adm)
+    }
+
+    Process {
+        If ($PSVersionTable.PSVersion.Major -ge 6) {
+            Write-Warning "This script is not compatible with PowerShell 6 or greater."
+            Write-Warning "Please run [$($myinvocation.mycommand)] from Windows PowerShell"
+            if ($PSBoundParameters.ContainsKey('Quiet')) {
+                Write-Warning "You specified [-Quiet]. Ensure you launch Windows Powershell AS ADMIN for this to function properly."
+            }
+        } Else {
+            if ($PSBoundParameters.ContainsKey('Preview')) { $PreviewOption = '-Preview' }
+            if ($PSBoundParameters.ContainsKey('Quiet')) {
+                If ($IsAdmin) {
+                    $QuietOption = '-Quiet'
+                }
+                Write-Warning "[$($myinvocation.mycommand)]: You must be running as an Administrator to specify the [-Quiet] option."
+                Write-Warning "[$($myinvocation.mycommand)]: Running without [-Quiet]"
+            }
+            Invoke-Expression -Command "& {$(Invoke-RestMethod https://aka.ms/install-powershell.ps1)} -UseMSI $PreviewOption $QuietOption"
+        }
+    }
+
+    End {}
 }
 #EndRegion Update-PowerShell

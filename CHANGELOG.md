@@ -1,5 +1,12 @@
 # Changelog for AdminToolkit
 
+## v1.1.2
+
+`Update-PowerShell`:
+
++ This function now only runs when **NOT** called from PowerShell (Version 6+) as this breaks the installer.
++ This function now checks for admin rights when `-Quiet` is specified. If running without admin rights, the function will run as if `-Quiet` was not provided.
+
 ## v1.1.2.3
 
 + `Get-RebootLogs`
