@@ -33,25 +33,36 @@
 Function Push-SshKey() {
     [CmdletBinding()]
     Param(
-        [Parameter(ParameterSetName = 'GenerateKeys')]
+        [Parameter(Mandatory,Position=0,ParameterSetName = 'GenerateKeyswithSshIdentity')]
+        [Parameter(Mandatory,Position=0,ParameterSetName = 'DeclaredKeysWithSshIdentity')]
+        [System.String]$SshTarget,
+
+        [Parameter(ParameterSetName = 'GenerateKeyswithSshIdentity')]
+        [Parameter(ParameterSetName = 'GenerateKeyswithTraditionalIdentity')]
         [Switch]$GenerateNewKeys,
 
-        [Parameter(ParameterSetName = 'GenerateKeys')]
+        [Parameter(ParameterSetName = 'GenerateKeyswithSshIdentity')]
+        [Parameter(ParameterSetName = 'GenerateKeyswithTraditionalIdentity')]
         [System.String]$KeyName = 'id_rsa',
 
-        [Parameter(ParameterSetName = 'GenerateKeys')]
+        [Parameter(ParameterSetName = 'GenerateKeyswithSshIdentity')]
+        [Parameter(ParameterSetName = 'GenerateKeyswithTraditionalIdentity')]
         [Switch]$Force,
         
-        [Parameter(ParameterSetName = 'DeclaredKeys')]
+        [Parameter(ParameterSetName = 'DeclaredKeysWithSshIdentity')]
+        [Parameter(ParameterSetName = 'DeclaredKeysWithTraditionalIdentity')]
         [ValidateScript({
-                Test-Path $_
-            })]
-        [System.String] $PublicKeyFile,
+            Test-Path $_
+        })]
+        [Alias('i')]
+        [System.String] $PublicKeyFile = '~/.ssh/id_rsa.pub',
 
-        [Parameter()]
+        [Parameter(ParameterSetName = 'DeclaredKeysWithTraditionalIdentity')]
+        [Parameter(ParameterSetName = 'GenerateKeyswithTraditionalIdentity')]
         [System.String]$Username = $env:USERNAME,
-
-        [Parameter(Mandatory)]
+        
+        [Parameter(Mandatory,ParameterSetName = 'DeclaredKeysWithTraditionalIdentity')]
+        [Parameter(Mandatory,ParameterSetName = 'GenerateKeyswithTraditionalIdentity')]
         [System.String]$ComputerName
     )
 
@@ -75,8 +86,15 @@ Function Push-SshKey() {
                     PublicKey = Get-ChildItem (Resolve-Path -Path $PublicKeyFile)
                 }
             }
+            Switch ($PSCmdlet.ParameterSetName) {
+                {$_ -eq 'DeclaredKeysWithSshIdentity' -OR $_ -eq 'GenerateKeyswithSshIdentity'} {
+                    $Username = $SshTarget.Split('@')[0]
+                    $ComputerName = $SshTarget.Split('@')[1]
+                }
+            }
             
-            Get-Content $Keys.PublicKey | ssh $Username@$ComputerName "mkdir -p ~/.ssh; cat >> .ssh/authorized_keys"
+            Write-Host "Pushing SSH key [$KeyName] to $Username@$ComputerName..." -ForegroundColor Cyan -BackgroundColor Black
+            #Get-Content $Keys.PublicKey | ssh $Username@$ComputerName "mkdir -p ~/.ssh; cat >> .ssh/authorized_keys"
         }
         Catch {
             Throw $_

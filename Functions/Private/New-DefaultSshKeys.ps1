@@ -48,10 +48,12 @@ Function New-DefaultSshKeys() {
 
             If ($Force.IsPresent) {
                 If (Test-Path $NewKeyPath) {
+                    Write-Host "Removing existing keys at $NewKeyPath" -ForegroundColor Cyan -BackgroundColor Black
                     Remove-Item $NewKeyPath -Force
                     Remove-Item "$NewKeyPath.pub" -Force
                 }
             }
+            Write-Host "Generating new keys at $NewKeyPath" -ForegroundColor Cyan -BackgroundColor Black
             ssh-keygen -b 2048 -t rsa -f "$NewKeyPath" -q -N '""'
 
             [PSCustomObject]@{
