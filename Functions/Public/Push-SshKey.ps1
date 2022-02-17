@@ -38,7 +38,11 @@
     Sponsor: https://github.com/sponsors/matthewjdegarmo
 #>
 Function Push-SshKey() {
-    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'High')]
+    [CmdletBinding(
+        SupportsShouldProcess,
+        ConfirmImpact = 'High',
+        DefaultParameterSetName = 'DeclaredKeysWithSshIdentity'
+    )]
     Param(
         [Parameter(Mandatory,Position=0,ParameterSetName = 'GenerateKeyswithSshIdentity')]
         [Parameter(Mandatory,Position=0,ParameterSetName = 'DeclaredKeysWithSshIdentity')]
