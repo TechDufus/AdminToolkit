@@ -7,12 +7,19 @@
     This command will setup SSH keys for the current user on a remote system.
 .PARAMETER GenerateNewKeys
     If set to true, a new SSH key pair will be generated.
+.PARAMETER KeyName
+    The Basename of the SSH key pair.
 .PARAMETER Force
     If set to true, the SSH key pair will be overwritten if it already exists.
 .PARAMETER PublicKeyFile
     The path to the public key file.
 .PARAMETER Username
     The username on the remote system.
+.PARAMETER ComputerName
+    The name or IPAddress of the remote computer.
+.PARAMETER SshTarget
+    Specify the typical user@computer format for the remote computer.
+    This parameter cannot be used with the -Username and -ComputerName parameters.
 .EXAMPLE
     Push-SshKey -GenerateNewKeys -Force -Username root
 
@@ -31,7 +38,7 @@
     Sponsor: https://github.com/sponsors/matthewjdegarmo
 #>
 Function Push-SshKey() {
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'High')]
     Param(
         [Parameter(Mandatory,Position=0,ParameterSetName = 'GenerateKeyswithSshIdentity')]
         [Parameter(Mandatory,Position=0,ParameterSetName = 'DeclaredKeysWithSshIdentity')]
@@ -94,7 +101,7 @@ Function Push-SshKey() {
             }
             
             Write-Host "Pushing SSH key [$KeyName] to $Username@$ComputerName..." -ForegroundColor Cyan -BackgroundColor Black
-            #Get-Content $Keys.PublicKey | ssh $Username@$ComputerName "mkdir -p ~/.ssh; cat >> .ssh/authorized_keys"
+            Get-Content $Keys.PublicKey | ssh $Username@$ComputerName "mkdir -p ~/.ssh; cat >> .ssh/authorized_keys"
         }
         Catch {
             Throw $_

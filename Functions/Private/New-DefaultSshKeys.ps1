@@ -25,7 +25,7 @@
     Sponsor: https://github.com/sponsors/matthewjdegarmo
 #>
 Function New-DefaultSshKeys() {
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'High')]
     Param(
         [Parameter(Mandatory)]
         [System.String]$KeyName,
@@ -46,11 +46,16 @@ Function New-DefaultSshKeys() {
                 Throw "A key already exists at $NewKeyPath. Use -Force to overwrite."
             }
 
+            $Operation = "You are about to overwrite existing ssh key pairs [$KeyName]. Are you sure you want to do this?"
             If ($Force.IsPresent) {
-                If (Test-Path $NewKeyPath) {
-                    Write-Host "Removing existing keys at $NewKeyPath" -ForegroundColor Cyan -BackgroundColor Black
-                    Remove-Item $NewKeyPath -Force
-                    Remove-Item "$NewKeyPath.pub" -Force
+                If ($PSCmdlet.ShouldProcess("WHERE IS THIS?!","Keys: $NewKeyPath, $NewKeyPath.pub",$Operation)) {
+                    If (Test-Path $NewKeyPath) {
+                        Write-Host "Removing existing keys at $NewKeyPath" -ForegroundColor Cyan -BackgroundColor Black
+                        Remove-Item $NewKeyPath -Force
+                        Remove-Item "$NewKeyPath.pub" -Force
+                    }
+                } Else {
+                    break
                 }
             }
             Write-Host "Generating new keys at $NewKeyPath" -ForegroundColor Cyan -BackgroundColor Black
