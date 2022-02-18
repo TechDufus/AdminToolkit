@@ -1,5 +1,24 @@
 # Changelog for AdminToolkit
 
+## v1.1.4
+
+`New Functions`:
+
+`ConvertTo-Emoji`:
+
++ This function converts a Unicode Hex value to it's corresponding emoji.
++ This conversion is compatible with Windows PowerShell and PowerShell.
++ See `Get-Help ConvertTo-Emoji -Detailed` for more information.
+
+## v1.1.3
+
+`New Functions`:
+
+`Push-SshKey`:
+
++ Added a new function to push a ssh key to a remote server for a specific user.
++ See `Get-Help Push-SshKey -Detailed` for more information.
+
 ## v1.1.2
 
 `Update-PowerShell`:
