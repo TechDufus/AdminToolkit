@@ -13,11 +13,11 @@
     This will reset the winsock and ip, ipv4, and ipv6 interfaces.
 .NOTES
     Author: Matthew J. DeGarmo
-    Handle: @matthewjdegarmo
+    Handle: @TechDufus
 
-    You can either submit a [PR](https://github.com/matthewjdegarmo/AdminToolkit/pulls)
-        or create an [Issue](https://github.com/matthewjdegarmo/AdminToolkit/issues/new)
-        on this GitHub project at https://github.com/matthewjdegarmo/AdminToolkit
+    You can either submit a [PR](https://github.com/TechDufus/AdminToolkit/pulls)
+        or create an [Issue](https://github.com/TechDufus/AdminToolkit/issues/new)
+        on this GitHub project at https://github.com/TechDufus/AdminToolkit
 
     Change Log:
     Version: 1.0 - Function Creation.

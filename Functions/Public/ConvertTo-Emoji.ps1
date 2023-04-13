@@ -23,8 +23,8 @@
     The hex string, 1F600, is the hex code for the 'Grinning Face' emoji.
 .NOTES
     Author:  https://github.com/vbsmbb/PSEmojis/blob/master/PSEmojis.psm1
-    GitHub:  https://github.com/matthewjdegarmo
-    Sponsor: https://github.com/sponsors/matthewjdegarmo
+    GitHub:  https://github.com/TechDufus
+    Sponsor: https://github.com/sponsors/TechDufus
 #>
 Function ConvertTo-Emoji() {
     [CmdletBinding()]

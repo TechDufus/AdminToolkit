@@ -31,11 +31,11 @@
     This will copy all contents of .\Folder to .\Folder1 and include the Acl / NTFS permissions.
 .NOTES
     Author: Matthew J. DeGarmo
-    Handle: @matthewjdegarmo
+    Handle: @TechDufus
 
-    You can either submit a [PR](https://github.com/matthewjdegarmo/AdminToolkit/pulls)
-        or create an [Issue](https://github.com/matthewjdegarmo/AdminToolkit/issues/new)
-        on this GitHub project at https://github.com/matthewjdegarmo/AdminToolkit
+    You can either submit a [PR](https://github.com/TechDufus/AdminToolkit/pulls)
+        or create an [Issue](https://github.com/TechDufus/AdminToolkit/issues/new)
+        on this GitHub project at https://github.com/TechDufus/AdminToolkit
 #>
 Function Copy-WithProgress() {
     [CmdletBinding()]
