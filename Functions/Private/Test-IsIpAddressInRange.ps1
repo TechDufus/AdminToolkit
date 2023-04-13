@@ -19,7 +19,7 @@
     This will return True, since 10.10.0.235 is within the given Start and End addresses.
 .NOTES
     Author: Matthew DeGarmo
-    GitHub: https://github.com/matthewjdegarmo
+    GitHub: https://github.com/TechDufus
 #>
 Function Test-IsIpAddressInRange() {
     [CmdletBinding()]

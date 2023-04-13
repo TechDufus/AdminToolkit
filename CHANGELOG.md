@@ -1,5 +1,13 @@
 # Changelog for AdminToolkit
 
+## v1.1.5
+
+`Documentation`:
+
+Updating the Repo owner name to `TechDufus`.
+  - This was a rename of the repo, not an ownership change.
+  - I feel this warranted a version bump to get this updated in all help docs for this module.
+
 ## v1.1.4
 
 `New Functions`:

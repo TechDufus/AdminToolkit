@@ -12,7 +12,7 @@
     RootModule           = 'AdminToolkit.psm1'
 
     # Version number of this module.
-    ModuleVersion        = '1.1.4'
+    ModuleVersion        = '1.1.5'
 
     # Supported PSEditions
     CompatiblePSEditions = 'Desktop', 'Core'
@@ -24,7 +24,7 @@
     Author               = 'Matthew J. DeGarmo'
 
     # Company or vendor of this module
-    CompanyName          = 'https://matthewjdegarmo.com'
+    CompanyName          = 'https://TechDufus.com'
 
     # Copyright statement for this module
     Copyright            = '(c) Matthew J. DeGarmo. All rights reserved.'
@@ -92,13 +92,13 @@
         PSData = @{
 
             # A URL to the license for this module.
-            LicenseUri   = 'https://github.com/matthewjdegarmo/AdminToolkit/blob/master/LICENSE'
+            LicenseUri   = 'https://github.com/TechDufus/AdminToolkit/blob/master/LICENSE'
 
             # A URL to the main website for this project.
-            ProjectUri   = 'https://github.com/matthewjdegarmo/AdminToolkit/'
+            ProjectUri   = 'https://github.com/TechDufus/AdminToolkit/'
 
             # ReleaseNotes of this module
-            ReleaseNotes = 'https://github.com/matthewjdegarmo/AdminToolkit/blob/master/CHANGELOG.md'
+            ReleaseNotes = 'https://github.com/TechDufus/AdminToolkit/blob/master/CHANGELOG.md'
 
         } # End of PSData hashtable
 

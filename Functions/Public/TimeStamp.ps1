@@ -42,11 +42,11 @@ Function TimeStamp() {
     This will colorize the TimeStamp, and make "ERROR: " Red, and with `NoNewLine` provided, you can add additional non-colorized text to the same line.
 .NOTES
     Author: Matthew J. DeGarmo
-    Site: https://matthewjdegarmo.github.io
+    Site: https://TechDufus.github.io
 
-    You can either submit a [PR](https://github.com/matthewjdegarmo/AdminToolkit/pulls)
-        or create an [Issue](https://github.com/matthewjdegarmo/AdminToolkit/issues/new)
-        on this GitHub project at https://github.com/matthewjdegarmo/AdminToolkit
+    You can either submit a [PR](https://github.com/TechDufus/AdminToolkit/pulls)
+        or create an [Issue](https://github.com/TechDufus/AdminToolkit/issues/new)
+        on this GitHub project at https://github.com/TechDufus/AdminToolkit
 #>
 Filter TimeStamp($color, $NoNewLine) {
     # [CmdletBinding()] # This is to pass the advanced function pester tests.

@@ -20,9 +20,9 @@
     ------------
     Generates new default keys for the currently running user. This will overwrite any existing keys.
 .NOTES
-    Author:  matthewjdegarmo
-    GitHub:  https://github.com/matthewjdegarmo
-    Sponsor: https://github.com/sponsors/matthewjdegarmo
+    Author:  TechDufus
+    GitHub:  https://github.com/TechDufus
+    Sponsor: https://github.com/sponsors/TechDufus
 #>
 Function New-DefaultSshKeys() {
     [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'High')]

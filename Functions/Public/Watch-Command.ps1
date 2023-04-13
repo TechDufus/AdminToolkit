@@ -25,11 +25,11 @@
     This will run the Get-Process command through the pipeline, and monitor for differences every 3 seconds. Notice this command is treated as a string and `"wrapped in quotes"`
 .NOTES
     Author: Matthew J. DeGarmo
-    Handle: @matthewjdegarmo
+    Handle: @TechDufus
 
-    You can either submit a [PR](https://github.com/matthewjdegarmo/AdminToolkit/pulls)
-        or create an [Issue](https://github.com/matthewjdegarmo/AdminToolkit/issues/new)
-        on this GitHub project at https://github.com/matthewjdegarmo/AdminToolkit
+    You can either submit a [PR](https://github.com/TechDufus/AdminToolkit/pulls)
+        or create an [Issue](https://github.com/TechDufus/AdminToolkit/issues/new)
+        on this GitHub project at https://github.com/TechDufus/AdminToolkit
 #>
 Function Watch-Command() {
     [CmdletBinding()]

@@ -15,11 +15,11 @@
     This will generated audio for the string 'Your data is ready, sir." depending on your volume level.
 .NOTES
     Author: Matthew J. DeGarmo
-    Site: https://matthewjdegarmo.github.io
+    Site: https://TechDufus.github.io
 
-    You can either submit a [PR](https://github.com/matthewjdegarmo/AdminToolkit/pulls)
-        or create an [Issue](https://github.com/matthewjdegarmo/AdminToolkit/issues/new)
-        on this GitHub project at https://github.com/matthewjdegarmo/AdminToolkit
+    You can either submit a [PR](https://github.com/TechDufus/AdminToolkit/pulls)
+        or create an [Issue](https://github.com/TechDufus/AdminToolkit/issues/new)
+        on this GitHub project at https://github.com/TechDufus/AdminToolkit
 #>
 Function Invoke-Speech() {
     [CmdletBinding()]

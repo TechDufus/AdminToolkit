@@ -33,9 +33,9 @@
     ------------
     Push the public key file to the remote system under the 'root' user.
 .NOTES
-    Author:  matthewjdegarmo
-    GitHub:  https://github.com/matthewjdegarmo
-    Sponsor: https://github.com/sponsors/matthewjdegarmo
+    Author:  TechDufus
+    GitHub:  https://github.com/TechDufus
+    Sponsor: https://github.com/sponsors/TechDufus
 #>
 Function Push-SshKey() {
     [CmdletBinding(

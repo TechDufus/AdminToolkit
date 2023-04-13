@@ -26,11 +26,11 @@
     This will attempt a connection to portal.office.com. This will prompt you for account information like what password to use.
 .NOTES
     Author: Matthew J. DeGarmo
-    Handle: @matthewjdegarmo
+    Handle: @TechDufus
 
-    You can either submit a [PR](https://github.com/matthewjdegarmo/AdminToolkit/pulls)
-        or create an [Issue](https://github.com/matthewjdegarmo/AdminToolkit/issues/new)
-        on this GitHub project at https://github.com/matthewjdegarmo/AdminToolkit
+    You can either submit a [PR](https://github.com/TechDufus/AdminToolkit/pulls)
+        or create an [Issue](https://github.com/TechDufus/AdminToolkit/issues/new)
+        on this GitHub project at https://github.com/TechDufus/AdminToolkit
 #>
 function Get-WindowsBuild() {
     [CmdletBinding()]
