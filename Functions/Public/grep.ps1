@@ -31,7 +31,6 @@ If ($DetectedOS -eq 'Windows') {
             on this GitHub project at https://github.com/TechDufus/AdminToolkit
     #>
     Function grep() {
-        # [CmdletBinding()] # This is to pass the advanced function pester tests.
         param(
             $regex
         )
