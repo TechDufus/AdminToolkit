@@ -29,7 +29,8 @@ BeforeDiscovery {
 
 Describe "Function: <_.BaseName>" -ForEach $PublicFunctions {
     BeforeDiscovery {
-        $Parameters = ((Get-Command $_.BaseName -ErrorAction SilentlyContinue).Parameters).Keys 
+        $Command = Get-Command $_.BaseName -ErrorAction SilentlyContinue
+        $Parameters = $Command.Parameters.Keys 
             | Where-Object { 
                 $_ -notin ([System.Management.Automation.PSCmdlet]::CommonParameters) -and 
                 $_ -notin ([System.Management.Automation.PSCmdlet]::OptionalCommonParameters) 
@@ -50,8 +51,8 @@ Describe "Function: <_.BaseName>" -ForEach $PublicFunctions {
         }
     }
 
-    It "Should register command with Get-Command" {
-        (Get-Command $CurrentFunction.BaseName) | Should -BeOfType [System.Management.Automation.CommandInfo]
+    It "Should register command with Get-Command" -ForEach @{ Command = $Command } {
+        $Command | Should -BeOfType [System.Management.Automation.CommandInfo]
     }
     It "Should have comment-based help block" {
         $CurrentFunction.FullName | Should -FileContentMatch '<#'
@@ -69,8 +70,8 @@ Describe "Function: <_.BaseName>" -ForEach $PublicFunctions {
     It "Should have NOTES section in help" {
         $CurrentFunction.FullName | Should -FileContentMatch '.NOTES'
     }
-    It "Should be an advanced function" -Skip:($_.BaseName -in 'grep') {
-        (Get-Command -Name $CurrentFunction.BaseName -Type Function).CmdletBinding | Should -BeTrue
+    It 'Should be an advanced function' -Skip:($Command.CommandType -ne 'Function' -or $Command.Name -in 'grep') -ForEach @{ Command = $Command } {
+        $Command.CmdletBinding | Should -BeTrue
     }
     It "Should have Begin and End Regions" {
         $CurrentFunction.FullName | Should -FileContentMatch "#Region"
