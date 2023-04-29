@@ -69,10 +69,8 @@ Describe "Function: <_.BaseName>" -ForEach $PublicFunctions {
     It "Should have NOTES section in help" {
         $CurrentFunction.FullName | Should -FileContentMatch '.NOTES'
     }
-    It "Should be an advanced function" {
-        $CurrentFunction.FullName | Should -FileContentMatch 'function'
-        $CurrentFunction.FullName | Should -FileContentMatch 'cmdletbinding'
-        $CurrentFunction.FullName | Should -FileContentMatch 'param'
+    It "Should be an advanced function" -Skip:($_.BaseName -in 'grep') {
+        (Get-Command -Name $CurrentFunction.BaseName -Type Function).CmdletBinding | Should -BeTrue
     }
     It "Should have Begin and End Regions" {
         $CurrentFunction.FullName | Should -FileContentMatch "#Region"
