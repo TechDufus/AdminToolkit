@@ -49,9 +49,6 @@ Function TimeStamp() {
         on this GitHub project at https://github.com/TechDufus/AdminToolkit
 #>
 Filter TimeStamp($color, $NoNewLine) {
-    # [CmdletBinding()] # This is to pass the advanced function pester tests.
-    # param () # This is to pass the advanced function pester tests.
-    # Function # This is to pass the advanced function pester tests.
     if ($color -eq 'NoNewLine') {
         $color = 'White'
         $NoNewLine = 'NoNewLine'
